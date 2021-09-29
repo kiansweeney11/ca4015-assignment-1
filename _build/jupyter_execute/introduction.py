@@ -11,3 +11,9 @@
 # There is typically 100 runs of the experiment and the decks are set up in a way that some reward the particpiant over time while others negatively impact the user over time. The decks that affect the user over time tend to have big rewards from time to time while at the same time lose the user money if they go for that deck regularly. Other decks then use smaller rewards and a more risk averse method of playing. 
 # 
 # ![Payoff-scheme-of-the-Iowa-Gambling-Task.png](attachment:Payoff-scheme-of-the-Iowa-Gambling-Task.png)
+
+# In[ ]:
+
+
+
+

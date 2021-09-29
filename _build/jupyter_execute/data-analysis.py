@@ -160,10 +160,10 @@ sum(margin150df.select_dtypes(np.number).gt(0).sum(axis=1))
 
 # ### Adding in Study undertakers to participant data
 
-# In[28]:
+# In[68]:
 
 
-margin95df
+margin95df.head()
 
 
 # In[29]:
@@ -172,10 +172,10 @@ margin95df
 margin95df['Study'] = index95['Study'].values
 
 
-# In[30]:
+# In[69]:
 
 
-margin95df
+margin95df.head()
 
 
 # In[31]:
