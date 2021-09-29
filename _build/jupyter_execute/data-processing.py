@@ -233,9 +233,3 @@ profit150df.head()
 
 profit150df.to_csv('Data/cleaned150.csv')
 
-
-# In[ ]:
-
-
-
-
