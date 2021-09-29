@@ -1,0 +1,3981 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Analysis and Experiments &#8212; CA4015 Assignment 1</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/dcu-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CA4015 Assignment 1</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction - CA4015 First Assignment
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/data-analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/kiansweeney11/ca4015-assignment-1"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/kiansweeney11/ca4015-assignment-1/issues/new?title=Issue%20on%20page%20%2Fdata-analysis.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kiansweeney11/ca4015-assignment-1/master?urlpath=tree/docs/data-analysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data Analysis and Experiments
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-in-data">
+     Read in data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initial-data-exploration-how-many-per-study-made-profit">
+   Initial data exploration - How many per study made profit?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-in-study-undertakers-to-participant-data">
+     Adding in Study undertakers to participant data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assessment-of-150-margin-results-for-each-study">
+     Assessment of 150 margin results for each study
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assessment-of-margin-for-100-trial-experiments">
+     Assessment of margin for 100 trial experiments
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#assessment-of-margin-for-the-95-trial-study">
+     Assessment of margin for the 95 trial study
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-of-participants-selection-flow">
+     Analysis of participants selection flow
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#next-we-move-onto-the-150-trial-experiments-and-see-how-these-studies-flowed-over-the-course-of-their-trials">
+       Next we move onto the 150 trial experiments and see how these studies flowed over the course of their trials
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-analysis-and-experiments">
+<h1>Data Analysis and Experiments<a class="headerlink" href="#data-analysis-and-experiments" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="read-in-data">
+<h2>Read in data<a class="headerlink" href="#read-in-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_18580</span><span class="o">/</span><span class="mf">950747112.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/choice_100.csv&#39;</span><span class="p">)</span>
+<span class="c1">#df[&#39;Choice_1&#39;].value_counts()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Choice_1</th>
+      <th>Choice_2</th>
+      <th>Choice_3</th>
+      <th>Choice_4</th>
+      <th>Choice_5</th>
+      <th>Choice_6</th>
+      <th>Choice_7</th>
+      <th>Choice_8</th>
+      <th>Choice_9</th>
+      <th>Choice_10</th>
+      <th>...</th>
+      <th>Choice_91</th>
+      <th>Choice_92</th>
+      <th>Choice_93</th>
+      <th>Choice_94</th>
+      <th>Choice_95</th>
+      <th>Choice_96</th>
+      <th>Choice_97</th>
+      <th>Choice_98</th>
+      <th>Choice_99</th>
+      <th>Choice_100</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>...</td>
+      <td>4</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>2</td>
+      <td>4</td>
+      <td>4</td>
+      <td>2</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>4</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+      <td>...</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>4</td>
+      <td>3</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>...</td>
+      <td>4</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>...</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 100 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index95</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/index_95.csv&#39;</span><span class="p">)</span>
+<span class="n">index100</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/index_100.csv&#39;</span><span class="p">)</span>
+<span class="n">index150</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/index_150.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="initial-data-exploration-how-many-per-study-made-profit">
+<h1>Initial data exploration - How many per study made profit?<a class="headerlink" href="#initial-data-exploration-how-many-per-study-made-profit" title="Permalink to this headline">¶</a></h1>
+<p>Here we check the study that used 95 trials of the experiment and see how many of the 15 subjects made profit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">win95</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/wi_95.csv&#39;</span><span class="p">)</span>
+<span class="n">loss95</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/lo_95.csv&#39;</span><span class="p">)</span>
+<span class="n">totalloss95</span> <span class="o">=</span> <span class="n">loss95</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">totalloss95</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Subj_1   -4650
+Subj_2   -7925
+Subj_3   -7850
+Subj_4   -7525
+Subj_5   -6350
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">totalwin95</span> <span class="o">=</span> <span class="n">win95</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">totalwin95</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Subj_1    5800
+Subj_2    7250
+Subj_3    7100
+Subj_4    7000
+Subj_5    6450
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95</span> <span class="o">=</span> <span class="n">totalwin95</span> <span class="o">+</span> <span class="n">totalloss95</span>
+<span class="n">margin95</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Subj_1    1150
+Subj_2    -675
+Subj_3    -750
+Subj_4    -525
+Subj_5     100
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Margin&#39;</span><span class="p">]</span>
+
+<span class="n">margin95df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">margin95</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">margin95df</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">margin95df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">kde</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Density plot of Profit/Loss margin for 95 people experiments&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;turquoise&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x2138d3299d0&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_9_1.png" src="_images/data-analysis_9_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">margin95df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Under half (7/15) of the participants made profit in the 95 trial experiment. We now do the same for both the 100 trial and 150 trial experiments</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">win100</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/wi_100.csv&#39;</span><span class="p">)</span>
+<span class="n">loss100</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/lo_100.csv&#39;</span><span class="p">)</span>
+<span class="n">totalloss100</span> <span class="o">=</span> <span class="n">loss100</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">totalloss100</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Subj_1   -9950
+Subj_2   -8250
+Subj_3   -8600
+Subj_4   -5650
+Subj_5   -8600
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">totalwin100</span> <span class="o">=</span> <span class="n">win100</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">totalwin100</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Subj_1    8150
+Subj_2    7450
+Subj_3    8150
+Subj_4    6850
+Subj_5    7300
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin100</span> <span class="o">=</span> <span class="n">totalwin100</span> <span class="o">+</span> <span class="n">totalloss100</span>
+<span class="n">margin100</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Subj_1   -1800
+Subj_2    -800
+Subj_3    -450
+Subj_4    1200
+Subj_5   -1300
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Margin&#39;</span><span class="p">]</span>
+
+<span class="n">margin100df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">margin100</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">margin100df</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">margin100df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">kde</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Density plot of Profit/Loss margin for 100 people experiments&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;turquoise&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x2138eb8b9d0&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_15_1.png" src="_images/data-analysis_15_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">margin100df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>208
+</pre></div>
+</div>
+</div>
+</div>
+<p>Only 41% of participants in the 100 trial experiment made money!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">win150</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/wi_150.csv&#39;</span><span class="p">)</span>
+<span class="n">loss150</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/lo_150.csv&#39;</span><span class="p">)</span>
+<span class="n">totalloss150</span> <span class="o">=</span> <span class="n">loss150</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">totalloss150</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Subj_1   -12200
+Subj_2   -13950
+Subj_3    -9300
+Subj_4    -6750
+Subj_5    -6300
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">totalwin150</span> <span class="o">=</span> <span class="n">win150</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">totalwin150</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Subj_1    11650
+Subj_2    12350
+Subj_3    10200
+Subj_4     8950
+Subj_5     8200
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin150</span> <span class="o">=</span> <span class="n">totalwin150</span> <span class="o">+</span> <span class="n">totalloss150</span>
+<span class="n">margin150</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Subj_1    -550
+Subj_2   -1600
+Subj_3     900
+Subj_4    2200
+Subj_5    1900
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Margin&#39;</span><span class="p">]</span>
+
+<span class="n">margin150df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">margin150</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">margin150df</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">margin150df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">kde</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Density plot of Profit/Loss margin for 150 people experiments&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;turquoise&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x2138ebd3d60&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_21_1.png" src="_images/data-analysis_21_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">margin150df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>62
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a much higher % of people making profit in the 150 trial experiment (63%). There is far less people taking part in this experiment than the 100 trial experiment but it may be worth drilling down further into the data to check the differences between the different groups undertaking the experiments here. It might be interesting to see if there is any trends surrounding the age profiles surveyed. We will now try to combine the study groups with our “margin” results.</p>
+<div class="section" id="adding-in-study-undertakers-to-participant-data">
+<h2>Adding in Study undertakers to participant data<a class="headerlink" href="#adding-in-study-undertakers-to-participant-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>1150</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>-675</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>-750</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>-525</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>Subj_6</th>
+      <td>1250</td>
+    </tr>
+    <tr>
+      <th>Subj_7</th>
+      <td>-150</td>
+    </tr>
+    <tr>
+      <th>Subj_8</th>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>Subj_9</th>
+      <td>-575</td>
+    </tr>
+    <tr>
+      <th>Subj_10</th>
+      <td>1475</td>
+    </tr>
+    <tr>
+      <th>Subj_11</th>
+      <td>-350</td>
+    </tr>
+    <tr>
+      <th>Subj_12</th>
+      <td>-325</td>
+    </tr>
+    <tr>
+      <th>Subj_13</th>
+      <td>450</td>
+    </tr>
+    <tr>
+      <th>Subj_14</th>
+      <td>-425</td>
+    </tr>
+    <tr>
+      <th>Subj_15</th>
+      <td>450</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index95</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Study</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>1150</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>-675</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>-750</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>-525</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>100</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_6</th>
+      <td>1250</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_7</th>
+      <td>-150</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_8</th>
+      <td>150</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_9</th>
+      <td>-575</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_10</th>
+      <td>1475</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_11</th>
+      <td>-350</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_12</th>
+      <td>-325</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_13</th>
+      <td>450</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_14</th>
+      <td>-425</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_15</th>
+      <td>450</td>
+      <td>Fridberg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin150df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index150</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin150df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Study</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>-550</td>
+      <td>Steingroever2011</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>-1600</td>
+      <td>Steingroever2011</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>900</td>
+      <td>Steingroever2011</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>2200</td>
+      <td>Steingroever2011</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>1900</td>
+      <td>Steingroever2011</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin100df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index100</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin100df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Study</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_500</th>
+      <td>75</td>
+      <td>Worthy</td>
+    </tr>
+    <tr>
+      <th>Subj_501</th>
+      <td>600</td>
+      <td>Worthy</td>
+    </tr>
+    <tr>
+      <th>Subj_502</th>
+      <td>-1525</td>
+      <td>Worthy</td>
+    </tr>
+    <tr>
+      <th>Subj_503</th>
+      <td>-750</td>
+      <td>Worthy</td>
+    </tr>
+    <tr>
+      <th>Subj_504</th>
+      <td>175</td>
+      <td>Worthy</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Here we will investigate the Study groups in the 150 person experiment. We will try to see does one group achieve better results in the task than the other.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin150df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Steingroever2011    57
+Wetzels             41
+Name: Study, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Profit for the 150 trial Wetzels study&quot;</span><span class="p">)</span>
+<span class="n">margin150df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">margin150df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Wetzels&#39;</span><span class="p">,</span> <span class="s1">&#39;Margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profit for the 150 trial Wetzels study
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Profit for the 150 trial Steingroever2011 study&quot;</span><span class="p">)</span>
+<span class="n">margin150df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">margin150df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Steingroever2011&#39;</span><span class="p">,</span> <span class="s1">&#39;Margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profit for the 150 trial Steingroever2011 study
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12550
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="assessment-of-150-margin-results-for-each-study">
+<h2>Assessment of 150 margin results for each study<a class="headerlink" href="#assessment-of-150-margin-results-for-each-study" title="Permalink to this headline">¶</a></h2>
+<p>This is interesting to note these values. Both studies make a large cumulative profit over the course of the 150 trials undertaken. There is a net profit between the two studies of 36,550 dollars, almost an average profit of 375 dollars per participant. It is interesting to note that the 41 students in “Wetzels” study were exclusively students, while in Steingroever2011’s study there was a young average age (19.9) but no specific mention of if the participants were students or not. Although they made money it was almost half of the other group studied. We will measure this against the other datasets to see if age is a factor between the decision making of the groups.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin100df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Horstmann            162
+Wood                 153
+SteingroverInPrep     70
+Maia                  40
+Worthy                35
+Premkumar             25
+Kjome                 19
+Name: Study, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loss for the 100 trial Horstmann study&quot;</span><span class="p">)</span>
+<span class="n">margin100df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">margin100df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Horstmann&#39;</span><span class="p">,</span> <span class="s1">&#39;Margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loss for the 100 trial Horstmann study
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-6200
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loss for the 100 trial Wood study&quot;</span><span class="p">)</span>
+<span class="n">margin100df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">margin100df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Wood&#39;</span><span class="p">,</span> <span class="s1">&#39;Margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loss for the 100 trial Wood study
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-119410
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loss for the 100 trial SteingroverInPrep study&quot;</span><span class="p">)</span>
+<span class="n">margin100df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">margin100df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;SteingroverInPrep&#39;</span><span class="p">,</span> <span class="s1">&#39;Margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loss for the 100 trial SteingroverInPrep study
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4700
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Profit for the 100 trial Maia study&quot;</span><span class="p">)</span>
+<span class="n">margin100df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">margin100df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Maia&#39;</span><span class="p">,</span> <span class="s1">&#39;Margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profit for the 100 trial Maia study
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13600
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loss for the 100 trial Worthy study&quot;</span><span class="p">)</span>
+<span class="n">margin100df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">margin100df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Worthy&#39;</span><span class="p">,</span> <span class="s1">&#39;Margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loss for the 100 trial Worthy study
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-15100
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Profit for the 100 trial Premkumar study&quot;</span><span class="p">)</span>
+<span class="n">margin100df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">margin100df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Premkumar&#39;</span><span class="p">,</span> <span class="s1">&#39;Margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profit for the 100 trial Premkumar study
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5995
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loss for the 100 trial Kjome study&quot;</span><span class="p">)</span>
+<span class="n">margin100df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">margin100df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Kjome&#39;</span><span class="p">,</span> <span class="s1">&#39;Margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loss for the 100 trial Kjome study
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-8750
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="assessment-of-margin-for-100-trial-experiments">
+<h2>Assessment of margin for 100 trial experiments<a class="headerlink" href="#assessment-of-margin-for-100-trial-experiments" title="Permalink to this headline">¶</a></h2>
+<p>The results here are in stark contrast to the 150 trial experiments. Despite less trials there is some significant losses accumalated by participants. Although the study conducted by Wood has a large number of participants in 153, the loss of 119,410 is certainly a major outlier. This equates to an average loss of roughly 780 dollars per person. It is particularly interesting to note <a class="reference external" href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ak/">here</a> in table 1, we see this group has the oldest average age of any group in the study by some distance. The next oldest average age specified actually makes a profit (Premkumar). Again we see students with strong results in the Maia study as undergraduate students here make a strong profit, similar to the groups in the 150 trial experiments. We now check the 95 trial study as our last part of our margin analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Study</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>1150</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>-675</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>-750</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>-525</td>
+      <td>Fridberg</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>100</td>
+      <td>Fridberg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Profit for the 95 trial Fridberg study&quot;</span><span class="p">)</span>
+<span class="n">margin95df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">margin95df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Fridberg&#39;</span><span class="p">,</span> <span class="s1">&#39;Margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Profit for the 95 trial Fridberg study
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1250
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="assessment-of-margin-for-the-95-trial-study">
+<h2>Assessment of margin for the 95 trial study<a class="headerlink" href="#assessment-of-margin-for-the-95-trial-study" title="Permalink to this headline">¶</a></h2>
+<p>In this trial as mentioned previously less than half of the participants made profit, but the 15 participant group made 1,250 over the course of the task. This obviously points to some bigger wins mitigating a collection of smaller losses in the group. The group who took part in this study were slightly older than some of the groups who made bigger profits (mean age of 29.6 years old). One thing consistent through this analysis of profit/loss margins has been student groups making more money than older groups. Age appears to be a factor but it may be interesting to look at the flow of each study too. By this, we mean looking at how participants profit/loss fluctuated on each turn and see did a series of wins lead them to change strategy and go for broke for example? Or did a series of losses at the start of the game potentially set the tone for some participants? To do this we will need to combine win and loss dataframes together and graph our results accordingly.</p>
+</div>
+<div class="section" id="analysis-of-participants-selection-flow">
+<h2>Analysis of participants selection flow<a class="headerlink" href="#analysis-of-participants-selection-flow" title="Permalink to this headline">¶</a></h2>
+<p>We will start by looking at the participants in the 95 trial experiment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">win95</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Wins_1</th>
+      <th>Wins_2</th>
+      <th>Wins_3</th>
+      <th>Wins_4</th>
+      <th>Wins_5</th>
+      <th>Wins_6</th>
+      <th>Wins_7</th>
+      <th>Wins_8</th>
+      <th>Wins_9</th>
+      <th>Wins_10</th>
+      <th>...</th>
+      <th>Wins_86</th>
+      <th>Wins_87</th>
+      <th>Wins_88</th>
+      <th>Wins_89</th>
+      <th>Wins_90</th>
+      <th>Wins_91</th>
+      <th>Wins_92</th>
+      <th>Wins_93</th>
+      <th>Wins_94</th>
+      <th>Wins_95</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 95 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loss95</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Losses_1</th>
+      <th>Losses_2</th>
+      <th>Losses_3</th>
+      <th>Losses_4</th>
+      <th>Losses_5</th>
+      <th>Losses_6</th>
+      <th>Losses_7</th>
+      <th>Losses_8</th>
+      <th>Losses_9</th>
+      <th>Losses_10</th>
+      <th>...</th>
+      <th>Losses_86</th>
+      <th>Losses_87</th>
+      <th>Losses_88</th>
+      <th>Losses_89</th>
+      <th>Losses_90</th>
+      <th>Losses_91</th>
+      <th>Losses_92</th>
+      <th>Losses_93</th>
+      <th>Losses_94</th>
+      <th>Losses_95</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-1250</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>-50</td>
+      <td>-300</td>
+      <td>0</td>
+      <td>-350</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-25</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>-50</td>
+      <td>0</td>
+      <td>-25</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>-75</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 95 columns</p>
+</div></div></div>
+</div>
+<p>To merge our dataframes together we will need to change the column names so that they share common names.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columnnames95</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Trial</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">96</span><span class="p">)]</span>
+<span class="n">wins95test</span> <span class="o">=</span> <span class="n">win95</span>
+<span class="n">wins95test</span> <span class="o">=</span> <span class="n">wins95test</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="n">columnnames95</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wins95test</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Trial1</th>
+      <th>Trial2</th>
+      <th>Trial3</th>
+      <th>Trial4</th>
+      <th>Trial5</th>
+      <th>Trial6</th>
+      <th>Trial7</th>
+      <th>Trial8</th>
+      <th>Trial9</th>
+      <th>Trial10</th>
+      <th>...</th>
+      <th>Trial86</th>
+      <th>Trial87</th>
+      <th>Trial88</th>
+      <th>Trial89</th>
+      <th>Trial90</th>
+      <th>Trial91</th>
+      <th>Trial92</th>
+      <th>Trial93</th>
+      <th>Trial94</th>
+      <th>Trial95</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 95 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loss95test</span> <span class="o">=</span> <span class="n">loss95</span>
+<span class="c1">#wins95test.head()</span>
+<span class="n">loss95test</span> <span class="o">=</span> <span class="n">loss95test</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="n">columnnames95</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">loss95test</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Trial1</th>
+      <th>Trial2</th>
+      <th>Trial3</th>
+      <th>Trial4</th>
+      <th>Trial5</th>
+      <th>Trial6</th>
+      <th>Trial7</th>
+      <th>Trial8</th>
+      <th>Trial9</th>
+      <th>Trial10</th>
+      <th>...</th>
+      <th>Trial86</th>
+      <th>Trial87</th>
+      <th>Trial88</th>
+      <th>Trial89</th>
+      <th>Trial90</th>
+      <th>Trial91</th>
+      <th>Trial92</th>
+      <th>Trial93</th>
+      <th>Trial94</th>
+      <th>Trial95</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-1250</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>-50</td>
+      <td>-300</td>
+      <td>0</td>
+      <td>-350</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-25</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>-50</td>
+      <td>0</td>
+      <td>-25</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>-75</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 95 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df95_added</span> <span class="o">=</span> <span class="n">wins95test</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">loss95test</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df95_added</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Trial1</th>
+      <th>Trial2</th>
+      <th>Trial3</th>
+      <th>Trial4</th>
+      <th>Trial5</th>
+      <th>Trial6</th>
+      <th>Trial7</th>
+      <th>Trial8</th>
+      <th>Trial9</th>
+      <th>Trial10</th>
+      <th>...</th>
+      <th>Trial86</th>
+      <th>Trial87</th>
+      <th>Trial88</th>
+      <th>Trial89</th>
+      <th>Trial90</th>
+      <th>Trial91</th>
+      <th>Trial92</th>
+      <th>Trial93</th>
+      <th>Trial94</th>
+      <th>Trial95</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-1150</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-200</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>0</td>
+      <td>-200</td>
+      <td>100</td>
+      <td>-250</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-200</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>100</td>
+      <td>0</td>
+      <td>50</td>
+      <td>0</td>
+      <td>0</td>
+      <td>50</td>
+      <td>25</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>-25</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_6</th>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-200</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_7</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-200</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_8</th>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>100</td>
+      <td>0</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_9</th>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>-1150</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>25</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>Subj_10</th>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-200</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>Subj_11</th>
+      <td>50</td>
+      <td>50</td>
+      <td>0</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>-200</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-150</td>
+    </tr>
+    <tr>
+      <th>Subj_12</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>-200</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>25</td>
+      <td>50</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>Subj_13</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>100</td>
+      <td>-25</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_14</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>-150</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>Subj_15</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>0</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>-150</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+<p>15 rows × 95 columns</p>
+</div></div></div>
+</div>
+<p>This study was all part of the Fridberg study so we don’t need to worry about comparing other studies here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_trial_95</span> <span class="o">=</span> <span class="n">df95_added</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">per_trial_95</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trial1     1200
+Trial2     1300
+Trial3     1000
+Trial4     1150
+Trial5      850
+           ... 
+Trial91     950
+Trial92     375
+Trial93     575
+Trial94     375
+Trial95     575
+Length: 95, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_trial_95</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Fridberg Study Win/Loss per round&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Fridberg Study Win/Loss per round&#39;}&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_60_1.png" src="_images/data-analysis_60_1.png" />
+</div>
+</div>
+<div class="section" id="next-we-move-onto-the-150-trial-experiments-and-see-how-these-studies-flowed-over-the-course-of-their-trials">
+<h3>Next we move onto the 150 trial experiments and see how these studies flowed over the course of their trials<a class="headerlink" href="#next-we-move-onto-the-150-trial-experiments-and-see-how-these-studies-flowed-over-the-course-of-their-trials" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">win150</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Wins_1</th>
+      <th>Wins_2</th>
+      <th>Wins_3</th>
+      <th>Wins_4</th>
+      <th>Wins_5</th>
+      <th>Wins_6</th>
+      <th>Wins_7</th>
+      <th>Wins_8</th>
+      <th>Wins_9</th>
+      <th>Wins_10</th>
+      <th>...</th>
+      <th>Wins_141</th>
+      <th>Wins_142</th>
+      <th>Wins_143</th>
+      <th>Wins_144</th>
+      <th>Wins_145</th>
+      <th>Wins_146</th>
+      <th>Wins_147</th>
+      <th>Wins_148</th>
+      <th>Wins_149</th>
+      <th>Wins_150</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 150 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loss150</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Losses_1</th>
+      <th>Losses_2</th>
+      <th>Losses_3</th>
+      <th>Losses_4</th>
+      <th>Losses_5</th>
+      <th>Losses_6</th>
+      <th>Losses_7</th>
+      <th>Losses_8</th>
+      <th>Losses_9</th>
+      <th>Losses_10</th>
+      <th>...</th>
+      <th>Losses_141</th>
+      <th>Losses_142</th>
+      <th>Losses_143</th>
+      <th>Losses_144</th>
+      <th>Losses_145</th>
+      <th>Losses_146</th>
+      <th>Losses_147</th>
+      <th>Losses_148</th>
+      <th>Losses_149</th>
+      <th>Losses_150</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>-250</td>
+      <td>0</td>
+      <td>-350</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-200</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>-1250</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>-250</td>
+      <td>-350</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-1250</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>-300</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+      <td>-1250</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>-350</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-250</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 150 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columnnames150</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Trial</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">151</span><span class="p">)]</span>
+<span class="c1">#columnnames95</span>
+<span class="n">wins150test</span> <span class="o">=</span> <span class="n">win150</span>
+<span class="c1">#wins95test.head()</span>
+<span class="n">wins150test</span> <span class="o">=</span> <span class="n">wins150test</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="n">columnnames150</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wins150test</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Trial1</th>
+      <th>Trial2</th>
+      <th>Trial3</th>
+      <th>Trial4</th>
+      <th>Trial5</th>
+      <th>Trial6</th>
+      <th>Trial7</th>
+      <th>Trial8</th>
+      <th>Trial9</th>
+      <th>Trial10</th>
+      <th>...</th>
+      <th>Trial141</th>
+      <th>Trial142</th>
+      <th>Trial143</th>
+      <th>Trial144</th>
+      <th>Trial145</th>
+      <th>Trial146</th>
+      <th>Trial147</th>
+      <th>Trial148</th>
+      <th>Trial149</th>
+      <th>Trial150</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 150 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loss150test</span> <span class="o">=</span> <span class="n">loss150</span>
+<span class="n">loss150test</span> <span class="o">=</span> <span class="n">loss150test</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="n">columnnames150</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loss150test</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Trial1</th>
+      <th>Trial2</th>
+      <th>Trial3</th>
+      <th>Trial4</th>
+      <th>Trial5</th>
+      <th>Trial6</th>
+      <th>Trial7</th>
+      <th>Trial8</th>
+      <th>Trial9</th>
+      <th>Trial10</th>
+      <th>...</th>
+      <th>Trial141</th>
+      <th>Trial142</th>
+      <th>Trial143</th>
+      <th>Trial144</th>
+      <th>Trial145</th>
+      <th>Trial146</th>
+      <th>Trial147</th>
+      <th>Trial148</th>
+      <th>Trial149</th>
+      <th>Trial150</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>-250</td>
+      <td>0</td>
+      <td>-350</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-200</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>-1250</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>-250</td>
+      <td>-350</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-1250</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>-300</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+      <td>-1250</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>-350</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-150</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-50</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-250</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 150 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df150_added</span> <span class="o">=</span> <span class="n">wins150test</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">loss150test</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df150_added</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Trial1</th>
+      <th>Trial2</th>
+      <th>Trial3</th>
+      <th>Trial4</th>
+      <th>Trial5</th>
+      <th>Trial6</th>
+      <th>Trial7</th>
+      <th>Trial8</th>
+      <th>Trial9</th>
+      <th>Trial10</th>
+      <th>...</th>
+      <th>Trial141</th>
+      <th>Trial142</th>
+      <th>Trial143</th>
+      <th>Trial144</th>
+      <th>Trial145</th>
+      <th>Trial146</th>
+      <th>Trial147</th>
+      <th>Trial148</th>
+      <th>Trial149</th>
+      <th>Trial150</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>-200</td>
+      <td>100</td>
+      <td>-250</td>
+      <td>100</td>
+      <td>50</td>
+      <td>-100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>-150</td>
+      <td>50</td>
+      <td>-1150</td>
+      <td>50</td>
+      <td>100</td>
+      <td>0</td>
+      <td>100</td>
+      <td>50</td>
+      <td>-50</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>-150</td>
+      <td>-250</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-1150</td>
+      <td>100</td>
+      <td>-200</td>
+      <td>-200</td>
+      <td>50</td>
+      <td>0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>-50</td>
+      <td>-1150</td>
+      <td>50</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>0</td>
+      <td>-200</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-200</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-200</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-200</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>Subj_94</th>
+      <td>-150</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_95</th>
+      <td>0</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-100</td>
+      <td>-1150</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_96</th>
+      <td>50</td>
+      <td>-200</td>
+      <td>100</td>
+      <td>-200</td>
+      <td>0</td>
+      <td>-100</td>
+      <td>0</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>100</td>
+      <td>50</td>
+      <td>0</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+      <td>-100</td>
+      <td>-200</td>
+    </tr>
+    <tr>
+      <th>Subj_97</th>
+      <td>100</td>
+      <td>-1150</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>0</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>0</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-100</td>
+      <td>-200</td>
+      <td>0</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Subj_98</th>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+<p>98 rows × 150 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df150_added</span>
+<span class="n">df150_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index150</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">df150_added</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Trial1</th>
+      <th>Trial2</th>
+      <th>Trial3</th>
+      <th>Trial4</th>
+      <th>Trial5</th>
+      <th>Trial6</th>
+      <th>Trial7</th>
+      <th>Trial8</th>
+      <th>Trial9</th>
+      <th>Trial10</th>
+      <th>...</th>
+      <th>Trial142</th>
+      <th>Trial143</th>
+      <th>Trial144</th>
+      <th>Trial145</th>
+      <th>Trial146</th>
+      <th>Trial147</th>
+      <th>Trial148</th>
+      <th>Trial149</th>
+      <th>Trial150</th>
+      <th>Study</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>-200</td>
+      <td>100</td>
+      <td>-250</td>
+      <td>100</td>
+      <td>50</td>
+      <td>-100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>-150</td>
+      <td>50</td>
+      <td>-1150</td>
+      <td>50</td>
+      <td>100</td>
+      <td>0</td>
+      <td>100</td>
+      <td>50</td>
+      <td>-50</td>
+      <td>Steingroever2011</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>-150</td>
+      <td>-250</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-1150</td>
+      <td>100</td>
+      <td>-200</td>
+      <td>-200</td>
+      <td>50</td>
+      <td>0</td>
+      <td>100</td>
+      <td>Steingroever2011</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>50</td>
+      <td>-50</td>
+      <td>-1150</td>
+      <td>50</td>
+      <td>0</td>
+      <td>-250</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>Steingroever2011</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>0</td>
+      <td>-200</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-200</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>Steingroever2011</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-200</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-200</td>
+      <td>Steingroever2011</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>Subj_94</th>
+      <td>-150</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>Wetzels</td>
+    </tr>
+    <tr>
+      <th>Subj_95</th>
+      <td>0</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-100</td>
+      <td>-1150</td>
+      <td>50</td>
+      <td>...</td>
+      <td>0</td>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+      <td>Wetzels</td>
+    </tr>
+    <tr>
+      <th>Subj_96</th>
+      <td>50</td>
+      <td>-200</td>
+      <td>100</td>
+      <td>-200</td>
+      <td>0</td>
+      <td>-100</td>
+      <td>0</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>...</td>
+      <td>50</td>
+      <td>0</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+      <td>-100</td>
+      <td>-200</td>
+      <td>Wetzels</td>
+    </tr>
+    <tr>
+      <th>Subj_97</th>
+      <td>100</td>
+      <td>-1150</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>0</td>
+      <td>100</td>
+      <td>50</td>
+      <td>50</td>
+      <td>0</td>
+      <td>...</td>
+      <td>50</td>
+      <td>50</td>
+      <td>-100</td>
+      <td>-200</td>
+      <td>0</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>Wetzels</td>
+    </tr>
+    <tr>
+      <th>Subj_98</th>
+      <td>50</td>
+      <td>0</td>
+      <td>50</td>
+      <td>50</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>-50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>...</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>100</td>
+      <td>50</td>
+      <td>100</td>
+      <td>Wetzels</td>
+    </tr>
+  </tbody>
+</table>
+<p>98 rows × 151 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teststein</span> <span class="o">=</span> <span class="n">df150_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df150_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Steingroever2011&#39;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">teststein</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
+<span class="n">per_trial_150_stein</span> <span class="o">=</span> <span class="n">teststein</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_trial_150_stein</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Steingroever2011&#39;s study&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Steingroever2011&#39;s study&quot;}&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_71_1.png" src="_images/data-analysis_71_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testWetzels</span> <span class="o">=</span> <span class="n">df150_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df150_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Wetzels&#39;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">testWetzels</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
+<span class="n">per_trial_150_wetzels</span> <span class="o">=</span> <span class="n">testWetzels</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_trial_150_wetzels</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Wetzels study&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Winnings per round for Wetzels study&#39;}&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_73_1.png" src="_images/data-analysis_73_1.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Kian Sweeney<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

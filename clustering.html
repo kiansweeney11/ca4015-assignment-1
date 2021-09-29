@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CA4015 Assignment 1 &#8212; CA4015 Assignment 1</title>
+    <title>Clustering &#8212; CA4015 Assignment 1</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -143,9 +143,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/clustering.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -163,7 +163,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/kiansweeney11/ca4015-assignment-1/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/kiansweeney11/ca4015-assignment-1/issues/new?title=Issue%20on%20page%20%2Fclustering.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -179,6 +179,23 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/kiansweeney11/ca4015-assignment-1/master?urlpath=tree/docs/clustering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -190,16 +207,9 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
+  <a class="reference internal nav-link" href="#after-our-analysis-of-the-data-we-must-now-cluster-the-data-accordingly">
+   After our analysis of the data we must now cluster the data accordingly
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#iowa-gambling-task">
-     Iowa Gambling Task¶
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -212,15 +222,35 @@
         
               <div>
                 
-  <div class="section" id="ca4015-assignment-1">
-<h1>CA4015 Assignment 1<a class="headerlink" href="#ca4015-assignment-1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="iowa-gambling-task">
-<h3>Iowa Gambling Task¶<a class="headerlink" href="#iowa-gambling-task" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://www.youtube.com/watch?v=A6SsQIyJMhs">Iowa Gambling Task</a>(IGT) is a pyscological card game thought to portray real world decision making and help understand how and why people make decisions. Typically, the particpiants start with a loan of $2000 and are typically given a deck of four cards to pick from. The deck either rewards or punishes the particpiant each time and the end goal of the game is to make more money than what they started with.</p>
-<p><img alt="gambling-task.jpg" src="attachment:gambling-task.jpg" /></p>
-<p>There is typically 100 runs of the experiment and the decks are set up in a way that some reward the particpiant over time while others negatively impact the user over time. The decks that affect the user over time tend to have big rewards from time to time while at the same time lose the user money if they go for that deck regularly. Other decks then use smaller rewards and a more risk averse method of playing.</p>
+  <div class="section" id="clustering">
+<h1>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="after-our-analysis-of-the-data-we-must-now-cluster-the-data-accordingly">
+<h2>After our analysis of the data we must now cluster the data accordingly<a class="headerlink" href="#after-our-analysis-of-the-data-we-must-now-cluster-the-data-accordingly" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sn</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span><span class="p">,</span> <span class="n">AgglomerativeClustering</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_score</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_20332</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sn</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span><span class="p">,</span> <span class="n">AgglomerativeClustering</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
