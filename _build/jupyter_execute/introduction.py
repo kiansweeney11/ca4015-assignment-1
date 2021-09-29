@@ -9,4 +9,14 @@
 # 
 # ![](https://media.imotions.com/images/20190528132235/The-Iowa-Gambling-Task-%E2%80%93-No-Dice-All-Science.jpg)
 
-# There is typically 100 runs of the experiment and the decks are set up in a way that some reward the particpiant over time while others negatively impact the user over time. The decks that affect the user over time tend to have big rewards from time to time while at the same time lose the user money if they go for that deck regularly. Other decks then use smaller rewards and a more risk averse method of playing. 
+# ### Dataset
+# For the purpose of this assignment there is varying trial lengths for each task. Typically, the task is run in 100 trials but in this instance we have a 95 trial, 100 trial and 150 trial experiments. We were given a variety of data for the trials. There were 617 particpiants across all the studies and all were reported as "healthy". We had each subjects choice on their respective trial, their winnings on the respective rounds combined with their losses for each round. We also had an "index" file which told us which study the subject was part of. An overview of our data and other information such as the particpiant demographics can be seen [here](https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ak/).
+# 
+# ### Methodology
+# Initially, we start by breaking down the data and seeing any interesting trends. We try to see which studies produced the highest winnings/losses and how subjects decision making flowed over time (i.e. did they consistently win small or try change strategy by going for broke and another set of cards). We try to combine this with the background demographic information provided to see can we tell anything from the studies. We then cluster the data accordingly by winnings and studys to detect any trends and try tell a story from the data.
+
+# In[ ]:
+
+
+
+
