@@ -87,7 +87,7 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="introduction.html">
+  <a class="reference internal" href="introd.html">
    Introduction - CA4015 First Assignment
   </a>
  </li>
@@ -211,6 +211,13 @@
   <a class="reference internal nav-link" href="#after-our-analysis-of-the-data-we-must-now-cluster-the-data-accordingly">
    After our analysis of the data we must now cluster the data accordingly
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-we-read-in-our-data">
+     First, we read in our data
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -227,6 +234,7 @@
 <h1>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="after-our-analysis-of-the-data-we-must-now-cluster-the-data-accordingly">
 <h2>After our analysis of the data we must now cluster the data accordingly<a class="headerlink" href="#after-our-analysis-of-the-data-we-must-now-cluster-the-data-accordingly" title="Permalink to this headline">¶</a></h2>
+<p>Importing approriate libraries</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -241,7 +249,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_8536</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_20912</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sn</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -250,6 +258,27 @@
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
 </pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="first-we-read-in-our-data">
+<h3>First, we read in our data<a class="headerlink" href="#first-we-read-in-our-data" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index95</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/index_95.csv&#39;</span><span class="p">)</span>
+<span class="n">index100</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/index_100.csv&#39;</span><span class="p">)</span>
+<span class="n">index150</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/index_150.csv&#39;</span><span class="p">)</span>
+<span class="n">win95</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/wi_95.csv&#39;</span><span class="p">)</span>
+<span class="n">win100</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/wi_100.csv&#39;</span><span class="p">)</span>
+<span class="n">win150</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/wi_150.csv&#39;</span><span class="p">)</span>
+<span class="n">loss95</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/lo_95.csv&#39;</span><span class="p">)</span>
+<span class="n">loss100</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/lo_100.csv&#39;</span><span class="p">)</span>
+<span class="n">loss150</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/lo_150.csv&#39;</span><span class="p">)</span>
+<span class="n">choice95</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/choice_95.csv&#39;</span><span class="p">)</span>
+<span class="n">choice100</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/choice_100.csv&#39;</span><span class="p">)</span>
+<span class="n">choice150</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/choice_150.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
