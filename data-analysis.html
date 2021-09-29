@@ -286,7 +286,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_20100</span><span class="o">/</span><span class="mf">950747112.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_8704</span><span class="o">/</span><span class="mf">950747112.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -751,107 +751,7 @@ dtype: int64
 <h2>Adding in Study undertakers to participant data<a class="headerlink" href="#adding-in-study-undertakers-to-participant-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Margin</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Subj_1</th>
-      <td>1150</td>
-    </tr>
-    <tr>
-      <th>Subj_2</th>
-      <td>-675</td>
-    </tr>
-    <tr>
-      <th>Subj_3</th>
-      <td>-750</td>
-    </tr>
-    <tr>
-      <th>Subj_4</th>
-      <td>-525</td>
-    </tr>
-    <tr>
-      <th>Subj_5</th>
-      <td>100</td>
-    </tr>
-    <tr>
-      <th>Subj_6</th>
-      <td>1250</td>
-    </tr>
-    <tr>
-      <th>Subj_7</th>
-      <td>-150</td>
-    </tr>
-    <tr>
-      <th>Subj_8</th>
-      <td>150</td>
-    </tr>
-    <tr>
-      <th>Subj_9</th>
-      <td>-575</td>
-    </tr>
-    <tr>
-      <th>Subj_10</th>
-      <td>1475</td>
-    </tr>
-    <tr>
-      <th>Subj_11</th>
-      <td>-350</td>
-    </tr>
-    <tr>
-      <th>Subj_12</th>
-      <td>-325</td>
-    </tr>
-    <tr>
-      <th>Subj_13</th>
-      <td>450</td>
-    </tr>
-    <tr>
-      <th>Subj_14</th>
-      <td>-425</td>
-    </tr>
-    <tr>
-      <th>Subj_15</th>
-      <td>450</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index95</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -904,54 +804,70 @@ dtype: int64
       <td>100</td>
       <td>Fridberg</td>
     </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index95</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Study</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
-      <th>Subj_6</th>
-      <td>1250</td>
+      <th>Subj_1</th>
+      <td>1150</td>
       <td>Fridberg</td>
     </tr>
     <tr>
-      <th>Subj_7</th>
-      <td>-150</td>
+      <th>Subj_2</th>
+      <td>-675</td>
       <td>Fridberg</td>
     </tr>
     <tr>
-      <th>Subj_8</th>
-      <td>150</td>
+      <th>Subj_3</th>
+      <td>-750</td>
       <td>Fridberg</td>
     </tr>
     <tr>
-      <th>Subj_9</th>
-      <td>-575</td>
+      <th>Subj_4</th>
+      <td>-525</td>
       <td>Fridberg</td>
     </tr>
     <tr>
-      <th>Subj_10</th>
-      <td>1475</td>
-      <td>Fridberg</td>
-    </tr>
-    <tr>
-      <th>Subj_11</th>
-      <td>-350</td>
-      <td>Fridberg</td>
-    </tr>
-    <tr>
-      <th>Subj_12</th>
-      <td>-325</td>
-      <td>Fridberg</td>
-    </tr>
-    <tr>
-      <th>Subj_13</th>
-      <td>450</td>
-      <td>Fridberg</td>
-    </tr>
-    <tr>
-      <th>Subj_14</th>
-      <td>-425</td>
-      <td>Fridberg</td>
-    </tr>
-    <tr>
-      <th>Subj_15</th>
-      <td>450</td>
+      <th>Subj_5</th>
+      <td>100</td>
       <td>Fridberg</td>
     </tr>
   </tbody>
