@@ -87,14 +87,24 @@ mode95.head()
 profit95df['Most Common Choice'] = mode95['Most Common Choice'].values
 
 
-# In[31]:
+# In[72]:
 
 
 profit95df['Study'] = index95['Study'].values
-profit95df
+profit95df.head()
 
 
-# In[32]:
+# In[73]:
+
+
+mean95 = choice95.mean(axis=1)
+mean95df = pd.DataFrame(data=mean95)
+mean95df.rename(columns={0: 'Average Choice'}, inplace=True)
+profit95df['Average Choice'] = mean95df['Average Choice'].values
+profit95df.head()
+
+
+# In[74]:
 
 
 profit95df.to_csv('Data/cleaned95.csv')
@@ -164,7 +174,17 @@ profit100df['Most Common Choice'] = profit100df['Most Common Choice'].astype('in
 profit100df.head()
 
 
-# In[45]:
+# In[70]:
+
+
+mean100 = choice100.mean(axis=1)
+mean100df = pd.DataFrame(data=mean100)
+mean100df.rename(columns={0: 'Average Choice'}, inplace=True)
+profit100df['Average Choice'] = mean100df['Average Choice'].values
+profit100df.head()
+
+
+# In[71]:
 
 
 profit100df.to_csv('Data/cleaned100.csv')
@@ -212,24 +232,31 @@ profit150df['Study'] = index150['Study'].values
 profit150df
 
 
-# In[51]:
+# In[67]:
 
 
-mode150 = choice150.mode(axis=1)
-mode150.rename(columns={0: 'Most Common Choice'}, inplace=True)
-profit150df['Most Common Choice'] = mode150['Most Common Choice'].values
+mode150 = choice150.mean(axis=1)
+mode150df = pd.DataFrame(data=mode150)
+mode150df.rename(columns={0: 'Average Choice'}, inplace=True)
+profit150df['Average Choice'] = mode150df['Average Choice'].values
 profit150df.head()
 
 
-# In[52]:
+# In[68]:
 
 
 profit150df['Most Common Choice'] = profit150df['Most Common Choice'].astype('int64')
 profit150df.head()
 
 
-# In[53]:
+# In[69]:
 
 
 profit150df.to_csv('Data/cleaned150.csv')
+
+
+# In[ ]:
+
+
+
 

@@ -18,7 +18,7 @@ from sklearn.metrics import silhouette_score
 
 # ### First, we read in our data
 
-# In[2]:
+# In[42]:
 
 
 index95 = pd.read_csv('data/index_95.csv')
@@ -37,12 +37,75 @@ choice150 = pd.read_csv('data/choice_150.csv')
 
 # Cleaned data from processing
 
-# In[3]:
+# In[43]:
 
 
-cleaned95 = pd.read_csv('data/cleaned95.csv')
-cleaned100 = pd.read_csv('data/cleaned100.csv')
-cleaned150 = pd.read_csv('data/cleaned150.csv')
+cleaned95 = pd.read_csv('data/cleaned95.csv', index_col='Unnamed: 0')
+cleaned100 = pd.read_csv('data/cleaned100.csv', index_col='Unnamed: 0')
+cleaned150 = pd.read_csv('data/cleaned150.csv', index_col='Unnamed: 0')
+
+
+# In[44]:
+
+
+cleaned95.head()
+
+
+# Initially, I decided to cluster based on the profit/loss margin for each subject and their most common choice. However, the most common choice would limit the clusters greatly I felt. There would only be 4 possible values (1,2,3 or 4) and this would limit what we could learn from the approriate cluster analysis. This lead me to going back to my data processing and creating the average choice column to add to my data. This was the sum of all the subjects selection divided by the number of trials and I felt this would provide better cluster analysis as a result as there would be far more variety in the range of values.
+
+# In[55]:
+
+
+kmeans_margin_choice = KMeans(n_clusters=3).fit(cleaned95[["Margin", "Average Choice"]])
+centroids_betas = kmeans_margin_choice.cluster_centers_
+
+
+# In[56]:
+
+
+plt.scatter(cleaned95['Margin'], cleaned95['Average Choice'], c= kmeans_margin_choice.labels_, cmap = "Set1", alpha=0.5)
+plt.scatter(centroids_betas[:, 0], centroids_betas[:, 1], c='blue')
+plt.xlabel('Profit/Loss Margin')
+plt.ylabel('Average Choice')
+plt.show()
+
+
+# From our cluster analysis here of the 95 trial experiments, it is interesting to note in the Fridberg study the cluster which had the highest average choice also made the most money by a significant distance. K = 3 is certainly the optimal number of clusters here as they are very much pre-defined and easy to distinguish by looking at the scatter plot.
+
+# In[68]:
+
+
+kmeans_margin_choice100 = KMeans(n_clusters=3).fit(cleaned100[["Margin", "Average Choice"]])
+centroids_betas = kmeans_margin_choice100.cluster_centers_
+
+
+# In[70]:
+
+
+plt.scatter(cleaned100['Margin'], cleaned100['Average Choice'], c= kmeans_margin_choice100.labels_, cmap = "Set1", alpha=0.5)
+plt.scatter(centroids_betas[:, 0], centroids_betas[:, 1], c='blue')
+plt.xlabel('Margin')
+plt.ylabel('Average Choice')
+plt.show()
+
+
+# Again
+
+# In[64]:
+
+
+kmeans_margin_choice150 = KMeans(n_clusters=3).fit(cleaned150[["Margin", "Average Choice"]])
+centroids_betas = kmeans_margin_choice150.cluster_centers_
+
+
+# In[66]:
+
+
+plt.scatter(cleaned150['Margin'], cleaned150['Average Choice'], c= kmeans_margin_choice150.labels_, cmap = "Set1", alpha=0.5)
+plt.scatter(centroids_betas[:, 0], centroids_betas[:, 1], c='blue')
+plt.xlabel('Margin')
+plt.ylabel('Choice')
+plt.show()
 
 
 # In[ ]:
