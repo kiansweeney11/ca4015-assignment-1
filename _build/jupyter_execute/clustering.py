@@ -87,27 +87,28 @@ plt.xlabel('Margin')
 plt.ylabel('Average Choice')
 
 
-# In[108]:
+# In[170]:
 
 
 kmeans_margin_choice100 = KMeans(n_clusters=3).fit(cleaned100[["Margin", "Average Choice"]])
 centroids_betas = kmeans_margin_choice100.cluster_centers_
 
 
-# In[109]:
+# In[171]:
 
 
+plt.figure(figsize=(16,8))
 plt.scatter(cleaned100['Margin'], cleaned100['Average Choice'], c= kmeans_margin_choice100.labels_, cmap = "Set1", alpha=0.5)
-plt.scatter(centroids_betas[:, 0], centroids_betas[:, 1], c='blue', marker='*')
+plt.scatter(centroids_betas[:, 0], centroids_betas[:, 1], c='blue', marker='x')
 plt.title('K-Means cluster for 100 Trial Subjects')
 plt.xlabel('Margin')
 plt.ylabel('Average Choice')
 plt.show()
 
 
-# Again
+# This graph is slightly harder to tell how many clusters is ideal with far more subjects to choose from. K=3 seems a reasonable selection once again however.
 
-# In[157]:
+# In[159]:
 
 
 replacements100 = {
@@ -121,22 +122,24 @@ replacements100 = {
 }
 
 cleaned100['StudyNumber'] = cleaned100.Study.replace(replacements100, regex=True)
+plt.figure(figsize=(16,8))
 plt.scatter(cleaned100['Margin'], cleaned100['Average Choice'], c=cleaned100['StudyNumber'])
 plt.title("Study Clusters")
 plt.xlabel('Margin')
 plt.ylabel('Average Choice')
 
 
-# In[106]:
+# In[167]:
 
 
 kmeans_margin_choice150 = KMeans(n_clusters=3).fit(cleaned150[["Margin", "Average Choice"]])
 centroids_betas = kmeans_margin_choice150.cluster_centers_
 
 
-# In[107]:
+# In[168]:
 
 
+plt.figure(figsize=(16,8))
 plt.scatter(cleaned150['Margin'], cleaned150['Average Choice'], c= kmeans_margin_choice150.labels_, cmap = "Set1", alpha=0.5)
 plt.scatter(centroids_betas[:, 0], centroids_betas[:, 1], c='blue', marker='x')
 plt.title('K-Means cluster for 150 Trial Subjects')
@@ -145,7 +148,7 @@ plt.ylabel('Choice')
 plt.show()
 
 
-# In[156]:
+# In[169]:
 
 
 replacements150 = {
@@ -154,6 +157,7 @@ replacements150 = {
 }
 
 cleaned150['StudyNumber'] = cleaned150.Study.replace(replacements150, regex=True)
+plt.figure(figsize=(16,8))
 plt.scatter(cleaned150['Margin'], cleaned150['Average Choice'], c=cleaned150['StudyNumber'])
 plt.title("Study Clusters")
 plt.xlabel('Margin')
