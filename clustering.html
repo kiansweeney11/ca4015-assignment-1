@@ -241,6 +241,16 @@
    Elbow Method
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#silhouette-scores-for-cleaned-100-dataset">
+   Silhouette Scores for cleaned 100 dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#silhouette-scores-for-150-trial-dataset">
+   Silhouette Scores for 150 Trial Dataset
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -265,13 +275,14 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span><span class="p">,</span> <span class="n">AgglomerativeClustering</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_score</span>
+<span class="kn">from</span> <span class="nn">yellowbrick.cluster</span> <span class="kn">import</span> <span class="n">SilhouetteVisualizer</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_18308</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_7744</span><span class="o">/</span><span class="mf">1246788676.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sn</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -474,7 +485,7 @@
 
 <span class="n">cleaned100</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleaned100</span><span class="o">.</span><span class="n">Study</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">replacements100</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cleaned100</span><span class="p">[</span><span class="s1">&#39;Margin&#39;</span><span class="p">],</span> <span class="n">cleaned100</span><span class="p">[</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cleaned100</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cleaned100</span><span class="p">[</span><span class="s1">&#39;Margin&#39;</span><span class="p">],</span> <span class="n">cleaned100</span><span class="p">[</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cleaned100</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Study Clusters&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Margin&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">)</span>
@@ -483,7 +494,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x2703d050a90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x2703d4ef7f0&gt;
 </pre></div>
 </div>
 <img alt="_images/clustering_17_1.png" src="_images/clustering_17_1.png" />
@@ -525,7 +536,7 @@
 
 <span class="n">cleaned150</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleaned150</span><span class="o">.</span><span class="n">Study</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">replacements150</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cleaned150</span><span class="p">[</span><span class="s1">&#39;Margin&#39;</span><span class="p">],</span> <span class="n">cleaned150</span><span class="p">[</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cleaned150</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cleaned150</span><span class="p">[</span><span class="s1">&#39;Margin&#39;</span><span class="p">],</span> <span class="n">cleaned150</span><span class="p">[</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cleaned150</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;copper_r&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Study Clusters&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Margin&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">)</span>
@@ -534,7 +545,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x2703d1e3ac0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x27041db11c0&gt;
 </pre></div>
 </div>
 <img alt="_images/clustering_21_1.png" src="_images/clustering_21_1.png" />
@@ -614,6 +625,78 @@
 </div>
 </div>
 <p>Again, we can see that the optimal number of clusters for our 150 trial dataset is K=3.</p>
+</div>
+<div class="section" id="silhouette-scores-for-cleaned-100-dataset">
+<h2>Silhouette Scores for cleaned 100 dataset<a class="headerlink" href="#silhouette-scores-for-cleaned-100-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Fit the KMeans model</span>
+<span class="c1"># Have to pick subset of columns as Study column is in string format</span>
+    <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">cleaned100</span><span class="p">[[</span><span class="s1">&#39;Margin&#39;</span><span class="p">,</span> <span class="s1">&#39;Average Choice&#39;</span><span class="p">,</span> <span class="s1">&#39;Most Common Choice&#39;</span><span class="p">]])</span>
+<span class="c1">#</span>
+<span class="c1"># Calculate Silhoutte Score</span>
+<span class="c1">#</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">cleaned100</span><span class="p">[[</span><span class="s1">&#39;Margin&#39;</span><span class="p">,</span> <span class="s1">&#39;Average Choice&#39;</span><span class="p">,</span> <span class="s1">&#39;Most Common Choice&#39;</span><span class="p">]],</span> <span class="n">km</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Print the score</span>
+<span class="c1">#</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Silhouetter Score: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouetter Score: 0.558
+Silhouetter Score: 0.532
+Silhouetter Score: 0.511
+Silhouetter Score: 0.535
+Silhouetter Score: 0.551
+Silhouetter Score: 0.550
+Silhouetter Score: 0.544
+Silhouetter Score: 0.544
+Silhouetter Score: 0.549
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="silhouette-scores-for-150-trial-dataset">
+<h2>Silhouette Scores for 150 Trial Dataset<a class="headerlink" href="#silhouette-scores-for-150-trial-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Fit the KMeans model</span>
+<span class="c1"># Have to pick subset of columns as Study column is in string format</span>
+    <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">cleaned150</span><span class="p">[[</span><span class="s1">&#39;Margin&#39;</span><span class="p">,</span> <span class="s1">&#39;Average Choice&#39;</span><span class="p">,</span> <span class="s1">&#39;Most Common Choice&#39;</span><span class="p">]])</span>
+<span class="c1">#</span>
+<span class="c1"># Calculate Silhoutte Score</span>
+<span class="c1">#</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">cleaned150</span><span class="p">[[</span><span class="s1">&#39;Margin&#39;</span><span class="p">,</span> <span class="s1">&#39;Average Choice&#39;</span><span class="p">,</span> <span class="s1">&#39;Most Common Choice&#39;</span><span class="p">]],</span> <span class="n">km</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Print the score</span>
+<span class="c1">#</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Silhouetter Score: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouetter Score: 0.537
+Silhouetter Score: 0.605
+Silhouetter Score: 0.584
+Silhouetter Score: 0.602
+Silhouetter Score: 0.575
+Silhouetter Score: 0.591
+Silhouetter Score: 0.601
+Silhouetter Score: 0.602
+Silhouetter Score: 0.581
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
