@@ -71,7 +71,21 @@ plt.ylabel('Average Choice')
 plt.show()
 
 
-# From our cluster analysis here of the 95 trial experiments, it is interesting to note in the Fridberg study the cluster which had the highest average choice also made the most money by a significant distance. K = 3 is certainly the optimal number of clusters here as they are very much pre-defined and easy to distinguish by looking at the scatter plot.
+# From our cluster analysis here of the 95 trial experiments, it is interesting to note in the Fridberg study the cluster which had the highest average choice also made the most money by a significant distance. K = 3 is certainly the optimal number of clusters here as they are very much pre-defined and easy to distinguish by looking at the scatter plot. We will now try to look at respective studies in a scatter plot and try to compare them with our K-means clusters to see if we can detect trends with regards to profitable studies or unprofitable studies. To do this we may need to create another column in our dataframes. We will have to number the studies accordingly with 0 being the Fridberg study and iterate through them. This way we can get some interesting comparisons between the K-means clustering and actual scatter plots.
+
+# In[158]:
+
+
+replacements = {
+  r'Fridberg': 0
+}
+
+cleaned95['StudyNumber'] = cleaned95.Study.replace(replacements, regex=True)
+plt.scatter(cleaned95['Margin'], cleaned95['Average Choice'], c=cleaned95['StudyNumber'])
+plt.title("Study Clusters")
+plt.xlabel('Margin')
+plt.ylabel('Average Choice')
+
 
 # In[108]:
 
@@ -93,6 +107,26 @@ plt.show()
 
 # Again
 
+# In[157]:
+
+
+replacements100 = {
+  r'Horstmann': 1,
+  r'Kjome': 2,
+  r'Maia': 3,
+  r'SteingroverInPrep': 4,
+  r'Premkumar': 5,
+  r'Wood': 6,
+  r'Worthy': 7  
+}
+
+cleaned100['StudyNumber'] = cleaned100.Study.replace(replacements100, regex=True)
+plt.scatter(cleaned100['Margin'], cleaned100['Average Choice'], c=cleaned100['StudyNumber'])
+plt.title("Study Clusters")
+plt.xlabel('Margin')
+plt.ylabel('Average Choice')
+
+
 # In[106]:
 
 
@@ -109,6 +143,21 @@ plt.title('K-Means cluster for 150 Trial Subjects')
 plt.xlabel('Margin')
 plt.ylabel('Choice')
 plt.show()
+
+
+# In[156]:
+
+
+replacements150 = {
+  r'Steingroever2011': 8,
+  r'Wetzels': 9, 
+}
+
+cleaned150['StudyNumber'] = cleaned150.Study.replace(replacements150, regex=True)
+plt.scatter(cleaned150['Margin'], cleaned150['Average Choice'], c=cleaned150['StudyNumber'])
+plt.title("Study Clusters")
+plt.xlabel('Margin')
+plt.ylabel('Average Choice')
 
 
 # In[94]:
@@ -156,7 +205,7 @@ plt.title('The Elbow Method showing the optimal k for 150 Trial Dataset')
 plt.plot(N, sse)
 
 
-# Again, we can see that the optimal number of clusters for our 150 trial dataset is K=3.
+# Again, we can see that the optimal number of clusters for our 150 trial dataset is K=3. 
 
 # In[ ]:
 

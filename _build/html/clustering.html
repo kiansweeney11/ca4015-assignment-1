@@ -254,7 +254,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_14964</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_12812</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sn</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -391,7 +391,28 @@
 <img alt="_images/clustering_9_0.png" src="_images/clustering_9_0.png" />
 </div>
 </div>
-<p>From our cluster analysis here of the 95 trial experiments, it is interesting to note in the Fridberg study the cluster which had the highest average choice also made the most money by a significant distance. K = 3 is certainly the optimal number of clusters here as they are very much pre-defined and easy to distinguish by looking at the scatter plot.</p>
+<p>From our cluster analysis here of the 95 trial experiments, it is interesting to note in the Fridberg study the cluster which had the highest average choice also made the most money by a significant distance. K = 3 is certainly the optimal number of clusters here as they are very much pre-defined and easy to distinguish by looking at the scatter plot. We will now try to look at respective studies in a scatter plot and try to compare them with our K-means clusters to see if we can detect trends with regards to profitable studies or unprofitable studies. To do this we may need to create another column in our dataframes. We will have to number the studies accordingly with 0 being the Fridberg study and iterate through them. This way we can get some interesting comparisons between the K-means clustering and actual scatter plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">replacements</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="sa">r</span><span class="s1">&#39;Fridberg&#39;</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">}</span>
+
+<span class="n">cleaned95</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleaned95</span><span class="o">.</span><span class="n">Study</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">replacements</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cleaned95</span><span class="p">[</span><span class="s1">&#39;Margin&#39;</span><span class="p">],</span> <span class="n">cleaned95</span><span class="p">[</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cleaned95</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Study Clusters&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Margin&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Average Choice&#39;)
+</pre></div>
+</div>
+<img alt="_images/clustering_11_1.png" src="_images/clustering_11_1.png" />
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans_margin_choice100</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cleaned100</span><span class="p">[[</span><span class="s2">&quot;Margin&quot;</span><span class="p">,</span> <span class="s2">&quot;Average Choice&quot;</span><span class="p">]])</span>
@@ -412,10 +433,37 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/clustering_12_0.png" src="_images/clustering_12_0.png" />
+<img alt="_images/clustering_13_0.png" src="_images/clustering_13_0.png" />
 </div>
 </div>
 <p>Again</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">replacements100</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="sa">r</span><span class="s1">&#39;Horstmann&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Kjome&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Maia&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;SteingroverInPrep&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Premkumar&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Wood&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Worthy&#39;</span><span class="p">:</span> <span class="mi">7</span>  
+<span class="p">}</span>
+
+<span class="n">cleaned100</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleaned100</span><span class="o">.</span><span class="n">Study</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">replacements100</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cleaned100</span><span class="p">[</span><span class="s1">&#39;Margin&#39;</span><span class="p">],</span> <span class="n">cleaned100</span><span class="p">[</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cleaned100</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Study Clusters&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Margin&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Average Choice&#39;)
+</pre></div>
+</div>
+<img alt="_images/clustering_15_1.png" src="_images/clustering_15_1.png" />
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans_margin_choice150</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">cleaned150</span><span class="p">[[</span><span class="s2">&quot;Margin&quot;</span><span class="p">,</span> <span class="s2">&quot;Average Choice&quot;</span><span class="p">]])</span>
@@ -436,7 +484,29 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/clustering_15_0.png" src="_images/clustering_15_0.png" />
+<img alt="_images/clustering_17_0.png" src="_images/clustering_17_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">replacements150</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="sa">r</span><span class="s1">&#39;Steingroever2011&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Wetzels&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> 
+<span class="p">}</span>
+
+<span class="n">cleaned150</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cleaned150</span><span class="o">.</span><span class="n">Study</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">replacements150</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cleaned150</span><span class="p">[</span><span class="s1">&#39;Margin&#39;</span><span class="p">],</span> <span class="n">cleaned150</span><span class="p">[</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">cleaned150</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Study Clusters&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Margin&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Average Choice&#39;)
+</pre></div>
+</div>
+<img alt="_images/clustering_18_1.png" src="_images/clustering_18_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -469,7 +539,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/clustering_17_0.png" src="_images/clustering_17_0.png" />
+<img alt="_images/clustering_20_0.png" src="_images/clustering_20_0.png" />
 </div>
 </div>
 <p>From the elbow method graph above, we can see that the optimal number of clusters is K=3 for the 100 trial dataset.</p>
@@ -505,7 +575,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2703c8e7b80&gt;]
 </pre></div>
 </div>
-<img alt="_images/clustering_20_1.png" src="_images/clustering_20_1.png" />
+<img alt="_images/clustering_23_1.png" src="_images/clustering_23_1.png" />
 </div>
 </div>
 <p>Again, we can see that the optimal number of clusters for our 150 trial dataset is K=3.</p>
