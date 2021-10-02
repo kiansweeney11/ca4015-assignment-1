@@ -53,6 +53,8 @@ cleaned95.head()
 
 # Initially, I decided to cluster based on the profit/loss margin for each subject and their most common choice. However, the most common choice would limit the clusters greatly I felt. There would only be 4 possible values (1,2,3 or 4) and this would limit what we could learn from the approriate cluster analysis. This lead me to going back to my data processing and creating the average choice column to add to my data. This was the sum of all the subjects selection divided by the number of trials and I felt this would provide better cluster analysis as a result as there would be far more variety in the range of values.
 
+# ## K-Means analysis 
+
 # In[123]:
 
 
@@ -87,6 +89,8 @@ plt.xlabel('Margin')
 plt.ylabel('Average Choice')
 
 
+# We can't tell a lot from this K-means vs Study analysis. The subjects in this dataset are all from the one Fridberg study. This leaves us to move on and check the other datasets for K-means vs study analysis.
+
 # In[170]:
 
 
@@ -108,7 +112,7 @@ plt.show()
 
 # This graph is slightly harder to tell how many clusters is ideal with far more subjects to choose from. K=3 seems a reasonable selection once again however.
 
-# In[159]:
+# In[178]:
 
 
 replacements100 = {
@@ -127,7 +131,11 @@ plt.scatter(cleaned100['Margin'], cleaned100['Average Choice'], c=cleaned100['St
 plt.title("Study Clusters")
 plt.xlabel('Margin')
 plt.ylabel('Average Choice')
+plt.colorbar()
 
+
+# ### Analysis of scatter plots for 100 trial studies
+# Using our colour bar we can deduce the clusters from what study they are a part of. If we look at the cluster to the left in our k-means scatter plot we can see that a substantial amount of this cluster contains subjects from the Wood et al study. It is interesting to note this had the highest mean average age of any study in the datasets. It also had a large number of participants but looking at the scatter plot very few participants made money over the course of the trials. The majority had an average choice of below 3 and certainly fell into the category of average lower choice and lower financial gain. This study also features heavily in the second cluster (the one most central) and this cluster also contains subjects who struggled to break even. The Horstmann study also features heavily in this cluster as does the Worthy study in yellow. The Worthy study leans more towards the first cluster again in the lower choice average, lower money made category. It is interesting to note that this study does not explicitly state the age demography of the group studied but tells us it was a solely female, undergraduate student study, which hints at it being a younger age group. In the third cluster to the right, which is the higher average choice, higher profit group we can see a large mix of groups with comparatively less subjects in this cluster compared to the other two. We can see a significant amount of subjects from the Maia study and also quite a few from the previously mentioned Horstmann study. We also see even with a small sample size from the study there is a significant number of Premkumar participants in this profitable cluster. Two of these studies contain a very young mean age again. The Maia study is another that focuses on undergraduate students again, but with better results than previous. 
 
 # In[167]:
 
@@ -148,7 +156,7 @@ plt.ylabel('Choice')
 plt.show()
 
 
-# In[169]:
+# In[177]:
 
 
 replacements150 = {
@@ -162,7 +170,10 @@ plt.scatter(cleaned150['Margin'], cleaned150['Average Choice'], c=cleaned150['St
 plt.title("Study Clusters")
 plt.xlabel('Margin')
 plt.ylabel('Average Choice')
+plt.colorbar()
 
+
+# ## Elbow Method
 
 # In[94]:
 
