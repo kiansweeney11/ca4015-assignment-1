@@ -14,6 +14,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans, AgglomerativeClustering
 from sklearn.metrics import silhouette_score
+from yellowbrick.cluster import SilhouetteVisualizer
 
 
 # ### First, we read in our data
@@ -112,7 +113,7 @@ plt.show()
 
 # This graph is slightly harder to tell how many clusters is ideal with far more subjects to choose from. K=3 seems a reasonable selection once again however.
 
-# In[178]:
+# In[199]:
 
 
 replacements100 = {
@@ -127,7 +128,7 @@ replacements100 = {
 
 cleaned100['StudyNumber'] = cleaned100.Study.replace(replacements100, regex=True)
 plt.figure(figsize=(16,8))
-plt.scatter(cleaned100['Margin'], cleaned100['Average Choice'], c=cleaned100['StudyNumber'])
+plt.scatter(cleaned100['Margin'], cleaned100['Average Choice'], c=cleaned100['StudyNumber'], cmap="nipy_spectral")
 plt.title("Study Clusters")
 plt.xlabel('Margin')
 plt.ylabel('Average Choice')
@@ -156,7 +157,7 @@ plt.ylabel('Choice')
 plt.show()
 
 
-# In[177]:
+# In[211]:
 
 
 replacements150 = {
@@ -166,7 +167,7 @@ replacements150 = {
 
 cleaned150['StudyNumber'] = cleaned150.Study.replace(replacements150, regex=True)
 plt.figure(figsize=(16,8))
-plt.scatter(cleaned150['Margin'], cleaned150['Average Choice'], c=cleaned150['StudyNumber'])
+plt.scatter(cleaned150['Margin'], cleaned150['Average Choice'], c=cleaned150['StudyNumber'], cmap='copper_r')
 plt.title("Study Clusters")
 plt.xlabel('Margin')
 plt.ylabel('Average Choice')
@@ -221,6 +222,48 @@ plt.plot(N, sse)
 
 
 # Again, we can see that the optimal number of clusters for our 150 trial dataset is K=3. 
+
+# ## Silhouette Scores for cleaned 100 dataset
+
+# In[226]:
+
+
+for n in range(2, 11):
+    km = KMeans(n_clusters=n, random_state=42)
+#
+# Fit the KMeans model
+# Have to pick subset of columns as Study column is in string format
+    km.fit_predict(cleaned100[['Margin', 'Average Choice', 'Most Common Choice']])
+#
+# Calculate Silhoutte Score
+#
+    score = silhouette_score(cleaned100[['Margin', 'Average Choice', 'Most Common Choice']], km.labels_, metric='euclidean')
+#
+# Print the score
+#
+    print('Silhouetter Score: %.3f' % score)
+
+
+# ## Silhouette Scores for 150 Trial Dataset
+
+# In[227]:
+
+
+for n in range(2, 11):
+    km = KMeans(n_clusters=n, random_state=42)
+#
+# Fit the KMeans model
+# Have to pick subset of columns as Study column is in string format
+    km.fit_predict(cleaned150[['Margin', 'Average Choice', 'Most Common Choice']])
+#
+# Calculate Silhoutte Score
+#
+    score = silhouette_score(cleaned150[['Margin', 'Average Choice', 'Most Common Choice']], km.labels_, metric='euclidean')
+#
+# Print the score
+#
+    print('Silhouetter Score: %.3f' % score)
+
 
 # In[ ]:
 

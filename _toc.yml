@@ -7,3 +7,4 @@ chapters:
 - file: data-analysis
 - file: data-processing
 - file: clustering
+- file: k-means_variation
