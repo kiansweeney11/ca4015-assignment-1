@@ -14,7 +14,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans, AgglomerativeClustering
 from sklearn.metrics import silhouette_score
-from yellowbrick.cluster import SilhouetteVisualizer
 
 
 # ### First, we read in our data
@@ -173,6 +172,8 @@ plt.xlabel('Margin')
 plt.ylabel('Average Choice')
 plt.colorbar()
 
+
+# Looking at this graph we can see how these studies was very profitable with it clear to see from the scatter plot the majority broke even or made money. We can also easily tell which study made more money than the other from this scatter plot too with the vast majority of the Wetzels studies equal or above a profit margin of 0 dollars. The cluster primarily consists of Steingroever2011's subjects which confirms our earlier analysis that this group made little over half the profit of Wetzels study. The central cluster is much more even, with possibly a few more from the Wetzels study than the Steingroever study. Again, the right most cluster has a fairly even split between the two studies with Wetzels subjects claiming some larger profit margins in contrast to the Steingroever study. It is interesting to note both studies had two cards with a payoff in the decks and both appeared to use similiar age demographies (Wetzels used students, Steingroever a mean average age of 19.9 years old). The larger number of subjects used in the Steingroever study could be attributed to why the winnings were larger in the Wetzels study. It was also interesting to note the variety of values in average choice used across the three clusters. 
 
 # ## Elbow Method
 

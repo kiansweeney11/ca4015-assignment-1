@@ -232,13 +232,21 @@ profit150df['Study'] = index150['Study'].values
 profit150df
 
 
+# In[ ]:
+
+
+mode150 = choice150.mode(axis=1)
+mode150.rename(columns={0: 'Most Common Choice'}, inplace=True)
+profit150df['Most Common Choice'] = mode150['Most Common Choice'].values
+
+
 # In[67]:
 
 
-mode150 = choice150.mean(axis=1)
-mode150df = pd.DataFrame(data=mode150)
-mode150df.rename(columns={0: 'Average Choice'}, inplace=True)
-profit150df['Average Choice'] = mode150df['Average Choice'].values
+mean150 = choice150.mean(axis=1)
+mean150df = pd.DataFrame(data=mode150)
+mean150df.rename(columns={0: 'Average Choice'}, inplace=True)
+profit150df['Average Choice'] = mean150df['Average Choice'].values
 profit150df.head()
 
 
