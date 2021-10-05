@@ -91,14 +91,14 @@ plt.ylabel('Average Choice')
 
 # We can't tell a lot from this K-means vs Study analysis. The subjects in this dataset are all from the one Fridberg study. This leaves us to move on and check the other datasets for K-means vs study analysis.
 
-# In[9]:
+# In[41]:
 
 
 kmeans_margin_choice100 = KMeans(n_clusters=3).fit(cleaned100[["Margin", "Average Choice"]])
 centroids_betas = kmeans_margin_choice100.cluster_centers_
 
 
-# In[10]:
+# In[42]:
 
 
 plt.figure(figsize=(16,8))
@@ -173,7 +173,7 @@ plt.ylabel('Average Choice')
 plt.colorbar()
 
 
-# Looking at this graph we can see how these studies was very profitable with it clear to see from the scatter plot the majority broke even or made money. We can also easily tell which study made more money than the other from this scatter plot too with the vast majority of the Wetzels studies equal or above a profit margin of 0 dollars. The cluster primarily consists of Steingroever2011's subjects which confirms our earlier analysis that this group made little over half the profit of Wetzels study. The central cluster is much more even, with possibly a few more from the Wetzels study than the Steingroever study. Again, the right most cluster has a fairly even split between the two studies with Wetzels subjects claiming some larger profit margins in contrast to the Steingroever study. It is interesting to note both studies had two cards with a payoff in the decks and both appeared to use similiar age demographies (Wetzels used students, Steingroever a mean average age of 19.9 years old). The larger number of subjects used in the Steingroever study could be attributed to why the winnings were larger in the Wetzels study. It was also interesting to note the variety of values in average choice used across the three clusters. 
+# Looking at this graph we can see how these studies was very profitable with it clear to see from the scatter plot the majority broke even or made money. We can also easily tell which study made more money than the other from this scatter plot too with the vast majority of the Wetzels studies equal or above a profit margin of 0 dollars. The cluster primarily consists of Steingroever2011's subjects which confirms our earlier analysis that this group made little over half the profit of Wetzels study. The central cluster is much more even, with possibly a few more from the Wetzels study than the Steingroever study. Again, the right most cluster has a fairly even split between the two studies with Wetzels subjects claiming some larger profit margins in contrast to the Steingroever study. It is interesting to note both studies had two cards with a payoff in the decks and both appeared to use similiar age demographies (Wetzels used students, Steingroever a mean average age of 19.9 years old). The larger number of subjects used in the Steingroever study could be attributed to why the winnings were larger in the Wetzels study. Definitely from looking at this graph and our other clusters younger age profiles, particularly students, seem to be more profitable in this task. 
 
 # ## Elbow Method
 
@@ -225,9 +225,11 @@ plt.show()
 
 # Again, we can see that the optimal number of clusters for our 150 trial dataset is K=3. 
 
-# ## Silhouette Scores for cleaned 100 dataset
+# ## Silhouette Scores Analysis
+# ### Silhouette Scores for cleaned 100 dataset
+# We now use another metric to test for the optimal number of clusters in our datasets. We try the silhouette coefficient which calculates the robustness of a clustering technique. The score scales from -1 to 1. 1 means the clusters are very distinguished and perfectly easy to identify, 0 means the clusters are indifferent or hard to identify and -1 means the clusters are assigned in the wrong way. We will try to use this with our earlier elbow coefficient to confirm the optimal number of clusters for our datasets.
 
-# In[20]:
+# In[38]:
 
 
 for n in range(2, 11):
@@ -243,12 +245,14 @@ for n in range(2, 11):
 #
 # Print the score
 #
-    print('Silhouetter Score: %.3f' % score)
+    print('N = ' + str(n) + ' Silhouette Score: %.3f' % score)
 
 
-# ## Silhouette Scores for 150 Trial Dataset
+# We see here there is not much to split the silhouette coefficient scores from range 2 to 10. It peaks at values of N = 2, 6 or 7. Using our previous elbow analysis of this data it is safe to conclude that using using 2 or 3 clusters provides optimal analysis of this data.
 
-# In[21]:
+# ### Silhouette Scores for 150 Trial Dataset
+
+# In[37]:
 
 
 for n in range(2, 11):
@@ -264,8 +268,10 @@ for n in range(2, 11):
 #
 # Print the score
 #
-    print('Silhouetter Score: %.3f' % score)
+    print('N = ' + str(n) + ' Silhouette Score: %.3f' % score)
 
+
+# We see the optimal values to use for number of clusters as part of this dataset are either N = 3,5,8 or 9. We use N = 3 as this also aligns with the elbow coefficient and produces the marginally better result in dataset. 
 
 # In[23]:
 
