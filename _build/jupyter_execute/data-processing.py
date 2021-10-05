@@ -15,7 +15,7 @@ from sklearn.cluster import KMeans, AgglomerativeClustering
 from sklearn.metrics import silhouette_score
 
 
-# In[2]:
+# In[3]:
 
 
 index95 = pd.read_csv('data/index_95.csv')
@@ -51,14 +51,14 @@ losses95 = losses95.set_axis(columnnames95, axis=1)
 losses95.head()
 
 
-# In[9]:
+# In[6]:
 
 
 df95_sum = wins95.add(losses95, fill_value=0)
 df95_sum.head()
 
 
-# In[23]:
+# In[7]:
 
 
 profit95 = df95_sum.sum(axis=1)
@@ -67,13 +67,13 @@ profit95df.rename(columns={0: 'Margin'}, inplace=True)
 profit95df.head()
 
 
-# In[12]:
+# In[8]:
 
 
 choice95.head()
 
 
-# In[24]:
+# In[9]:
 
 
 mode95 = choice95.mode(axis=1)
@@ -81,20 +81,20 @@ mode95.rename(columns={0: 'Most Common Choice'}, inplace=True)
 mode95.head()
 
 
-# In[30]:
+# In[12]:
 
 
 profit95df['Most Common Choice'] = mode95['Most Common Choice'].values
 
 
-# In[72]:
+# In[13]:
 
 
 profit95df['Study'] = index95['Study'].values
 profit95df.head()
 
 
-# In[73]:
+# In[14]:
 
 
 mean95 = choice95.mean(axis=1)
@@ -112,7 +112,7 @@ profit95df.to_csv('Data/cleaned95.csv')
 
 # ## We now do this for the 100 trial and 150 trial experiments
 
-# In[34]:
+# In[15]:
 
 
 columnnames100 = [f'Trial{num}' for num in range(1,101)]
@@ -121,7 +121,7 @@ wins100 = wins100.set_axis(columnnames100, axis=1)
 wins100.head()
 
 
-# In[36]:
+# In[16]:
 
 
 losses100 = loss100
@@ -129,14 +129,14 @@ losses100 = losses100.set_axis(columnnames100, axis=1)
 losses100.head()
 
 
-# In[37]:
+# In[17]:
 
 
 df100_sum = wins100.add(losses100, fill_value=0)
 df100_sum.head()
 
 
-# In[38]:
+# In[18]:
 
 
 profit100 = df100_sum.sum(axis=1)
@@ -145,14 +145,14 @@ profit100df.rename(columns={0: 'Margin'}, inplace=True)
 profit100df.head()
 
 
-# In[39]:
+# In[19]:
 
 
 profit100df['Study'] = index100['Study'].values
 profit100df
 
 
-# In[41]:
+# In[20]:
 
 
 mode100 = choice100.mode(axis=1)
@@ -161,20 +161,20 @@ profit100df['Most Common Choice'] = mode100['Most Common Choice'].values
 profit100df.head()
 
 
-# In[42]:
+# In[21]:
 
 
 profit100df['Most Common Choice'].value_counts()
 
 
-# In[43]:
+# In[22]:
 
 
 profit100df['Most Common Choice'] = profit100df['Most Common Choice'].astype('int64')
 profit100df.head()
 
 
-# In[70]:
+# In[23]:
 
 
 mean100 = choice100.mean(axis=1)
@@ -192,7 +192,7 @@ profit100df.to_csv('Data/cleaned100.csv')
 
 # Lastly, we take the 150 trial data.
 
-# In[46]:
+# In[24]:
 
 
 columnnames150 = [f'Trial{num}' for num in range(1,151)]
@@ -201,7 +201,7 @@ wins150 = wins150.set_axis(columnnames150, axis=1)
 wins150.head()
 
 
-# In[47]:
+# In[25]:
 
 
 losses150 = loss150
@@ -209,14 +209,14 @@ losses150 = losses150.set_axis(columnnames150, axis=1)
 losses150.head()
 
 
-# In[48]:
+# In[26]:
 
 
 df150_sum = wins150.add(losses150, fill_value=0)
 df150_sum.head()
 
 
-# In[49]:
+# In[27]:
 
 
 profit150 = df150_sum.sum(axis=1)
@@ -225,14 +225,14 @@ profit150df.rename(columns={0: 'Margin'}, inplace=True)
 profit150df.head()
 
 
-# In[50]:
+# In[28]:
 
 
 profit150df['Study'] = index150['Study'].values
 profit150df
 
 
-# In[ ]:
+# In[29]:
 
 
 mode150 = choice150.mode(axis=1)
@@ -240,20 +240,13 @@ mode150.rename(columns={0: 'Most Common Choice'}, inplace=True)
 profit150df['Most Common Choice'] = mode150['Most Common Choice'].values
 
 
-# In[67]:
+# In[33]:
 
 
 mean150 = choice150.mean(axis=1)
-mean150df = pd.DataFrame(data=mode150)
+mean150df = pd.DataFrame(data=mean150)
 mean150df.rename(columns={0: 'Average Choice'}, inplace=True)
 profit150df['Average Choice'] = mean150df['Average Choice'].values
-profit150df.head()
-
-
-# In[68]:
-
-
-profit150df['Most Common Choice'] = profit150df['Most Common Choice'].astype('int64')
 profit150df.head()
 
 
@@ -261,6 +254,26 @@ profit150df.head()
 
 
 profit150df.to_csv('Data/cleaned150.csv')
+
+
+# In[35]:
+
+
+merged95_150 = pd.concat([profit95df, profit150df])
+merged95_150.head(25)
+
+
+# In[36]:
+
+
+mergedall = pd.concat([merged95_150, profit100df])
+mergedall
+
+
+# In[37]:
+
+
+mergedall.to_csv('Data/cleaned_all.csv')
 
 
 # In[ ]:
