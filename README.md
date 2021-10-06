@@ -12,15 +12,15 @@ Iowa Gambling Task assignment for CA4015 Advanced Machine Learning.
 
 ### Building the Book
 To build the book after new code has been merged we must firstly build the html of the book running the command:
-'''
+```
 
 jupyter-book build ca4015-assignment-1
-'''
+```
 
 We run this from outside the directory where the source code comes from. Then inside the directory we run the command to build the pages:
-'''
+```
 
 ghp-import -n -p -f _build/html
-'''
+```
 
 Here is a link to my jupyter [book](https://kiansweeney11.github.io/ca4015-assignment-1/introduction.html)
