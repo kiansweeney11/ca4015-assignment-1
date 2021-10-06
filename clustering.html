@@ -294,7 +294,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_25316</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_16760</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sn</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -563,7 +563,7 @@
 <img alt="_images/clustering_21_1.png" src="_images/clustering_21_1.png" />
 </div>
 </div>
-<p>Looking at this graph we can see how these studies was very profitable with it clear to see from the scatter plot the majority broke even or made money. We can also easily tell which study made more money than the other from this scatter plot too with the vast majority of the Wetzels studies equal or above a profit margin of 0 dollars. The cluster primarily consists of Steingroever2011’s subjects which confirms our earlier analysis that this group made little over half the profit of Wetzels study. The central cluster is much more even, with possibly a few more from the Wetzels study than the Steingroever study. Again, the right most cluster has a fairly even split between the two studies with Wetzels subjects claiming some larger profit margins in contrast to the Steingroever study. It is interesting to note both studies had two cards with a payoff in the decks and both appeared to use similiar age demographies (Wetzels used students, Steingroever a mean average age of 19.9 years old). The larger number of subjects used in the Steingroever study could be attributed to why the winnings were larger in the Wetzels study. Definitely from looking at this graph and our other clusters younger age profiles, particularly students, seem to be more profitable in this task.</p>
+<p>Looking at this graph we can see how these studies was very profitable with it clear to see from the scatter plot the majority broke even or made money. We can also easily tell which study made more money than the other from this scatter plot too with the vast majority of the Wetzels studies equal or above a profit margin of 0 dollars. The cluster primarily consists of Steingroever2011’s subjects which confirms our earlier analysis that this group made little over half the profit of Wetzels study. The central cluster is much more even, with possibly a few more from the Wetzels study than the Steingroever study. Again, the right most cluster has a fairly even split between the two studies with Wetzels subjects claiming some larger profit margins in contrast to the Steingroever study. It is interesting to note both studies had two cards with a payoff in the decks and both appeared to use similiar age demographies (Wetzels used students, Steingroever a mean average age of 19.9 years old). The larger number of subjects used in the Steingroever study could be attributed to why the winnings were larger in the Wetzels study as boh studies had 2 cards that paid out. Definitely from looking at this graph and our other clusters younger age profiles, particularly students, seem to be more profitable in this task. We also can see that an average card choice of between 3 and 3.25 appears most profitable from our 3 cluster analysis. Higher values closer to 4 also pay well but not as well as between the aforementioned range, while an average value of under 2.5 is detrimental to participants.</p>
 </div>
 </div>
 <div class="section" id="elbow-method">
@@ -713,6 +713,122 @@ N = 10 Silhouette Score: 0.581
 </div>
 </div>
 <p>We see the optimal values to use for number of clusters as part of this dataset are either N = 3,5,8 or 9. We use N = 3 as this also aligns with the elbow coefficient and produces the marginally better result in dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">joined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Data/cleaned_all.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
+<span class="n">joined</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Average Choice</th>
+      <th>Most Common Choice</th>
+      <th>StudyNumber</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>1150</td>
+      <td>3.400000</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>-675</td>
+      <td>2.568421</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>-750</td>
+      <td>2.778947</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>-525</td>
+      <td>2.810526</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>100</td>
+      <td>3.021053</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Fit the KMeans model</span>
+<span class="c1"># Have to pick subset of columns as Study column is in string format</span>
+    <span class="n">km</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">joined</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Calculate Silhoutte Score</span>
+<span class="c1">#</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">joined</span><span class="p">,</span> <span class="n">km</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Print the score</span>
+<span class="c1">#</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;N = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; Silhouette Score: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">score</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N = 2 Silhouette Score: 0.553
+N = 3 Silhouette Score: 0.532
+N = 4 Silhouette Score: 0.524
+N = 5 Silhouette Score: 0.529
+N = 6 Silhouette Score: 0.546
+N = 7 Silhouette Score: 0.556
+N = 8 Silhouette Score: 0.545
+N = 9 Silhouette Score: 0.551
+N = 10 Silhouette Score: 0.547
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">scatter_matrix</span><span class="p">(</span><span class="n">joined</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">hist_kwds</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Set1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/clustering_38_0.png" src="_images/clustering_38_0.png" />
+</div>
+</div>
 </div>
 </div>
 </div>

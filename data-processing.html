@@ -256,7 +256,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_3236</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_9032</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sn</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -3260,6 +3260,135 @@ Name: Most Common Choice, dtype: int64
       <td>Worthy</td>
       <td>3.100000</td>
       <td>4</td>
+    </tr>
+  </tbody>
+</table>
+<p>617 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">replacements_study</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="sa">r</span><span class="s1">&#39;Fridberg&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>  
+  <span class="sa">r</span><span class="s1">&#39;Horstmann&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Kjome&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Maia&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;SteingroverInPrep&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Premkumar&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Wood&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Worthy&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Steingroever2011&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="sa">r</span><span class="s1">&#39;Wetzels&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>  
+<span class="p">}</span>
+
+<span class="n">mergedall</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mergedall</span><span class="o">.</span><span class="n">Study</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">replacements_study</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mergedall</span> <span class="o">=</span> <span class="n">mergedall</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">])</span>
+<span class="n">mergedall</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Average Choice</th>
+      <th>Most Common Choice</th>
+      <th>StudyNumber</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Subj_1</th>
+      <td>1150</td>
+      <td>3.400000</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_2</th>
+      <td>-675</td>
+      <td>2.568421</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_3</th>
+      <td>-750</td>
+      <td>2.778947</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_4</th>
+      <td>-525</td>
+      <td>2.810526</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Subj_5</th>
+      <td>100</td>
+      <td>3.021053</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>Subj_500</th>
+      <td>75</td>
+      <td>2.630000</td>
+      <td>2</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Subj_501</th>
+      <td>600</td>
+      <td>2.840000</td>
+      <td>3</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Subj_502</th>
+      <td>-1525</td>
+      <td>2.380000</td>
+      <td>2</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Subj_503</th>
+      <td>-750</td>
+      <td>2.460000</td>
+      <td>1</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Subj_504</th>
+      <td>175</td>
+      <td>3.100000</td>
+      <td>4</td>
+      <td>7</td>
     </tr>
   </tbody>
 </table>
