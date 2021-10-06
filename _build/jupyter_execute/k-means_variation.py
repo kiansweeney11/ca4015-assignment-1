@@ -18,7 +18,7 @@ from sklearn.metrics import silhouette_score
 
 # Import our data
 
-# In[2]:
+# In[6]:
 
 
 index95 = pd.read_csv('data/index_95.csv')
@@ -37,12 +37,13 @@ choice150 = pd.read_csv('data/choice_150.csv')
 cleaned95 = pd.read_csv('data/cleaned95.csv', index_col='Unnamed: 0')
 cleaned100 = pd.read_csv('data/cleaned100.csv', index_col='Unnamed: 0')
 cleaned150 = pd.read_csv('data/cleaned150.csv', index_col='Unnamed: 0')
+joined = pd.read_csv('data/cleaned_all.csv', index_col='Unnamed: 0')
 
 
-# In[5]:
+# In[7]:
 
 
-cleaned150.head()
+joined.head()
 
 
 # In[ ]:

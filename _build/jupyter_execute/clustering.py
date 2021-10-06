@@ -306,8 +306,4 @@ pd.plotting.scatter_matrix(joined, figsize=(10,10), hist_kwds=dict(bins=50), cma
 plt.show()
 
 
-# In[ ]:
-
-
-
-
+# After looking at this scatterplot comparing the various columns against each other in a scatter plot 
