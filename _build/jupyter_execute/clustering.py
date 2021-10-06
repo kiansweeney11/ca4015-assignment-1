@@ -55,18 +55,18 @@ cleaned95.head()
 
 # ## K-Means analysis 
 
-# In[6]:
+# In[68]:
 
 
-kmeans_margin_choice = KMeans(n_clusters=3).fit(cleaned95[["Margin", "Average Choice"]])
-centroids_betas = kmeans_margin_choice.cluster_centers_
+kmeans_margin_choice_95 = KMeans(n_clusters=3).fit(cleaned95[["Margin", "Average Choice"]])
+centroids_betas95 = kmeans_margin_choice_95.cluster_centers_
 
 
-# In[7]:
+# In[69]:
 
 
-plt.scatter(cleaned95['Margin'], cleaned95['Average Choice'], c= kmeans_margin_choice.labels_, cmap = "Set1", alpha=0.5)
-plt.scatter(centroids_betas[:, 0], centroids_betas[:, 1], c='blue', marker='x')
+plt.scatter(cleaned95['Margin'], cleaned95['Average Choice'], c= kmeans_margin_choice_95.labels_, cmap = "Set1", alpha=0.5)
+plt.scatter(centroids_betas95[:, 0], centroids_betas95[:, 1], c='blue', marker='x')
 plt.title('K-Means cluster for 95 Trial Subjects')
 plt.xlabel('Profit/Loss Margin')
 plt.ylabel('Average Choice')
@@ -87,19 +87,19 @@ cleaned95['StudyNumber'] = cleaned95.Study.replace(replacements, regex=True)
 
 # We can't tell a lot from this K-means vs Study analysis. The subjects in this dataset are all from the one Fridberg study. This leaves us to move on and check the other datasets for K-means vs study analysis.
 
-# In[41]:
+# In[70]:
 
 
 kmeans_margin_choice100 = KMeans(n_clusters=3).fit(cleaned100[["Margin", "Average Choice"]])
-centroids_betas = kmeans_margin_choice100.cluster_centers_
+centroids_betas_100 = kmeans_margin_choice100.cluster_centers_
 
 
-# In[42]:
+# In[71]:
 
 
 plt.figure(figsize=(16,8))
 plt.scatter(cleaned100['Margin'], cleaned100['Average Choice'], c= kmeans_margin_choice100.labels_, cmap = "Set1", alpha=0.5)
-plt.scatter(centroids_betas[:, 0], centroids_betas[:, 1], c='blue', marker='x')
+plt.scatter(centroids_betas_100[:, 0], centroids_betas_100[:, 1], c='blue', marker='x')
 plt.title('K-Means cluster for 100 Trial Subjects')
 plt.xlabel('Margin')
 plt.ylabel('Average Choice')
@@ -133,19 +133,19 @@ plt.colorbar()
 # ### Analysis of scatter plots for 100 trial studies
 # Using our colour bar we can deduce the clusters from what study they are a part of. If we look at the cluster to the left in our k-means scatter plot we can see that a substantial amount of this cluster contains subjects from the Wood et al study. It is interesting to note this had the highest mean average age of any study in the datasets. It also had a large number of participants but looking at the scatter plot very few participants made money over the course of the trials. The majority had an average choice of below 3 and certainly fell into the category of average lower choice and lower financial gain. This study also features heavily in the second cluster (the one most central) and this cluster also contains subjects who struggled to break even. The Horstmann study also features heavily in this cluster as does the Worthy study in yellow. The Worthy study leans more towards the first cluster again in the lower choice average, lower money made category. It is interesting to note that this study does not explicitly state the age demography of the group studied but tells us it was a solely female, undergraduate student study, which hints at it being a younger age group. In the third cluster to the right, which is the higher average choice, higher profit group we can see a large mix of groups with comparatively less subjects in this cluster compared to the other two. We can see a significant amount of subjects from the Maia study and also quite a few from the previously mentioned Horstmann study. We also see even with a small sample size from the study there is a significant number of Premkumar participants in this profitable cluster. Two of these studies contain a very young mean age again. The Maia study is another that focuses on undergraduate students again, but with better results than previous. 
 
-# In[12]:
+# In[72]:
 
 
 kmeans_margin_choice150 = KMeans(n_clusters=3).fit(cleaned150[["Margin", "Average Choice"]])
-centroids_betas = kmeans_margin_choice150.cluster_centers_
+centroids_betas_150 = kmeans_margin_choice150.cluster_centers_
 
 
-# In[13]:
+# In[73]:
 
 
 plt.figure(figsize=(16,8))
 plt.scatter(cleaned150['Margin'], cleaned150['Average Choice'], c= kmeans_margin_choice150.labels_, cmap = "Set1", alpha=0.5)
-plt.scatter(centroids_betas[:, 0], centroids_betas[:, 1], c='blue', marker='x')
+plt.scatter(centroids_betas_150[:, 0], centroids_betas_150[:, 1], c='blue', marker='x')
 plt.title('K-Means cluster for 150 Trial Subjects')
 plt.xlabel('Margin')
 plt.ylabel('Choice')
@@ -225,7 +225,7 @@ plt.show()
 # ### Silhouette Scores for cleaned 100 dataset
 # We now use another metric to test for the optimal number of clusters in our datasets. We try the silhouette coefficient which calculates the robustness of a clustering technique. The score scales from -1 to 1. 1 means the clusters are very distinguished and perfectly easy to identify, 0 means the clusters are indifferent or hard to identify and -1 means the clusters are assigned in the wrong way. We will try to use this with our earlier elbow coefficient to confirm the optimal number of clusters for our datasets.
 
-# In[38]:
+# In[60]:
 
 
 for n in range(2, 11):
@@ -233,7 +233,7 @@ for n in range(2, 11):
 #
 # Fit the KMeans model
 # Have to pick subset of columns as Study column is in string format
-    km.fit_predict(cleaned100[['Margin', 'Average Choice', 'Most Common Choice']])
+    km.fit_predict(cleaned100[['Margin', 'Average Choice', 'Most Common Choice', 'Most Common Choice Picked']])
 #
 # Calculate Silhoutte Score
 #
@@ -248,7 +248,7 @@ for n in range(2, 11):
 
 # ### Silhouette Scores for 150 Trial Dataset
 
-# In[37]:
+# In[61]:
 
 
 for n in range(2, 11):
@@ -256,7 +256,7 @@ for n in range(2, 11):
 #
 # Fit the KMeans model
 # Have to pick subset of columns as Study column is in string format
-    km.fit_predict(cleaned150[['Margin', 'Average Choice', 'Most Common Choice']])
+    km.fit_predict(cleaned150[['Margin', 'Average Choice', 'Most Common Choice', 'Most Common Choice Picked']])
 #
 # Calculate Silhoutte Score
 #
@@ -295,6 +295,27 @@ for n in range(2, 11):
     print('N = ' + str(n) + ' Silhouette Score: %.3f' % score)
 
 
+# In[62]:
+
+
+distortions_joined = []
+for k in K:
+    kmeanModel = KMeans(n_clusters=k)
+    kmeanModel.fit(joined)
+    distortions_joined.append(kmeanModel.inertia_)
+
+
+# In[63]:
+
+
+plt.figure(figsize=(16,8))
+plt.plot(K, distortions, 'bx-')
+plt.xlabel('k')
+plt.ylabel('Distortion')
+plt.title('The Elbow Method showing the optimal k for whole Dataset')
+plt.show()
+
+
 # In[58]:
 
 
@@ -303,6 +324,25 @@ plt.show()
 
 
 # After looking at this scatterplot comparing the various columns against each other in a scatter plot I felt it might be worth looking into how regularly a participant picked their most common choice and the profit margins. We could further look into this by looking at what was their most common choice and the respective study they belonged to.
+
+# In[66]:
+
+
+kmeans_margin_joined = KMeans(n_clusters=3).fit(joined[["Margin", "Most Common Choice Picked"]])
+centroids_betas_joined = kmeans_margin_joined.cluster_centers_
+
+
+# In[67]:
+
+
+plt.figure(figsize=(16,8))
+plt.scatter(joined['Margin'], joined['Most Common Choice Picked'], c= kmeans_margin_joined.labels_, cmap = "Set1", alpha=0.5)
+plt.scatter(centroids_betas_joined[:, 0], centroids_betas_joined[:, 1], c='blue', marker='x')
+plt.title('K-Means cluster for all Subjects')
+plt.xlabel('Margin')
+plt.ylabel('Times Most Common Choice Picked')
+plt.show()
+
 
 # In[ ]:
 
