@@ -107,6 +107,11 @@
    3. Clustering
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="k-means_variation.html">
+   4. K-Means Variation
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -203,6 +208,18 @@
   <a class="reference internal nav-link" href="#student-id-18306226">
    Student ID: 18306226
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requirements">
+     Requirements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-the-book">
+     Building the Book
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -223,7 +240,27 @@
 <div class="section" id="student-id-18306226">
 <h2>Student ID: 18306226<a class="headerlink" href="#student-id-18306226" title="Permalink to this headline">¶</a></h2>
 <p>Iowa Gambling Task assignment for CA4015 Advanced Machine Learning.</p>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>jupyter-book version 0.11.3</p></li>
+<li><p>matplotlib</p></li>
+<li><p>numpy</p></li>
+<li><p>pandas</p></li>
+</ul>
+</div>
+<div class="section" id="building-the-book">
+<h3>Building the Book<a class="headerlink" href="#building-the-book" title="Permalink to this headline">¶</a></h3>
+<p>To build the book after new code has been merged we must firstly build the html of the book running the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="n">ca4015</span><span class="o">-</span><span class="n">assignment</span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>We run this from outside the directory where the source code comes from. Then inside the directory we run the command to build the pages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">f</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span>
+</pre></div>
+</div>
 <p>Here is a link to my jupyter <a class="reference external" href="https://kiansweeney11.github.io/ca4015-assignment-1/introduction.html">book</a></p>
+</div>
 </div>
 </div>
 
