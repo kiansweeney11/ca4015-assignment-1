@@ -18,7 +18,7 @@ from sklearn.metrics import silhouette_score
 
 # ### First, we read in our data
 
-# In[3]:
+# In[53]:
 
 
 index95 = pd.read_csv('data/index_95.csv')
@@ -37,7 +37,7 @@ choice150 = pd.read_csv('data/choice_150.csv')
 
 # Cleaned data from processing
 
-# In[4]:
+# In[54]:
 
 
 cleaned95 = pd.read_csv('data/cleaned95.csv', index_col='Unnamed: 0')
@@ -45,7 +45,7 @@ cleaned100 = pd.read_csv('data/cleaned100.csv', index_col='Unnamed: 0')
 cleaned150 = pd.read_csv('data/cleaned150.csv', index_col='Unnamed: 0')
 
 
-# In[5]:
+# In[55]:
 
 
 cleaned95.head()
@@ -75,7 +75,7 @@ plt.show()
 
 # From our cluster analysis here of the 95 trial experiments, it is interesting to note in the Fridberg study the cluster which had the highest average choice also made the most money by a significant distance. K = 3 is certainly the optimal number of clusters here as they are very much pre-defined and easy to distinguish by looking at the scatter plot. We will now try to look at respective studies in a scatter plot and try to compare them with our K-means clusters to see if we can detect trends with regards to profitable studies or unprofitable studies. To do this we may need to create another column in our dataframes. We will have to number the studies accordingly with 0 being the Fridberg study and iterate through them. This way we can get some interesting comparisons between the K-means clustering and actual scatter plots.
 
-# In[8]:
+# In[59]:
 
 
 replacements = {
@@ -83,10 +83,6 @@ replacements = {
 }
 
 cleaned95['StudyNumber'] = cleaned95.Study.replace(replacements, regex=True)
-plt.scatter(cleaned95['Margin'], cleaned95['Average Choice'], c=cleaned95['StudyNumber'])
-plt.title("Study Clusters")
-plt.xlabel('Margin')
-plt.ylabel('Average Choice')
 
 
 # We can't tell a lot from this K-means vs Study analysis. The subjects in this dataset are all from the one Fridberg study. This leaves us to move on and check the other datasets for K-means vs study analysis.
@@ -177,7 +173,7 @@ plt.colorbar()
 
 # ## Elbow Method
 
-# In[15]:
+# In[51]:
 
 
 distortions = []
@@ -188,7 +184,7 @@ for k in K:
     distortions.append(kmeanModel.inertia_)
 
 
-# In[16]:
+# In[52]:
 
 
 plt.figure(figsize=(16,8))
@@ -208,7 +204,7 @@ sse_values = []
 Z = range(1,10)
 for k in Z:
     kmeanModel = KMeans(n_clusters=k)
-    kmeanModel.fit(cleaned150[['Margin', 'Average Choice', 'Most Common Choice']])
+    kmeanModel.fit(cleaned150)
     sse_values.append(kmeanModel.inertia_)
 
 
@@ -273,14 +269,14 @@ for n in range(2, 11):
 
 # We see the optimal values to use for number of clusters as part of this dataset are either N = 3,5,8 or 9. We use N = 3 as this also aligns with the elbow coefficient and produces the marginally better result in dataset.
 
-# In[44]:
+# In[56]:
 
 
 joined = pd.read_csv('Data/cleaned_all.csv', index_col='Unnamed: 0')
 joined.head()
 
 
-# In[45]:
+# In[57]:
 
 
 for n in range(2, 11):
@@ -299,11 +295,17 @@ for n in range(2, 11):
     print('N = ' + str(n) + ' Silhouette Score: %.3f' % score)
 
 
-# In[48]:
+# In[58]:
 
 
 pd.plotting.scatter_matrix(joined, figsize=(10,10), hist_kwds=dict(bins=50), cmap="Set1")
 plt.show()
 
 
-# After looking at this scatterplot comparing the various columns against each other in a scatter plot 
+# After looking at this scatterplot comparing the various columns against each other in a scatter plot I felt it might be worth looking into how regularly a participant picked their most common choice and the profit margins. We could further look into this by looking at what was their most common choice and the respective study they belonged to.
+
+# In[ ]:
+
+
+
+
