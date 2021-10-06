@@ -270,7 +270,28 @@ mergedall = pd.concat([merged95_150, profit100df])
 mergedall
 
 
-# In[37]:
+# In[40]:
+
+
+replacements_study = {
+  r'Fridberg': 0,  
+  r'Horstmann': 1,
+  r'Kjome': 2,
+  r'Maia': 3,
+  r'SteingroverInPrep': 4,
+  r'Premkumar': 5,
+  r'Wood': 6,
+  r'Worthy': 7,
+  r'Steingroever2011': 8,
+  r'Wetzels': 9,  
+}
+
+mergedall['StudyNumber'] = mergedall.Study.replace(replacements_study, regex=True)
+mergedall = mergedall.drop(columns=['Study'])
+mergedall
+
+
+# In[41]:
 
 
 mergedall.to_csv('Data/cleaned_all.csv')

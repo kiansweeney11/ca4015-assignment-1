@@ -173,7 +173,7 @@ plt.ylabel('Average Choice')
 plt.colorbar()
 
 
-# Looking at this graph we can see how these studies was very profitable with it clear to see from the scatter plot the majority broke even or made money. We can also easily tell which study made more money than the other from this scatter plot too with the vast majority of the Wetzels studies equal or above a profit margin of 0 dollars. The cluster primarily consists of Steingroever2011's subjects which confirms our earlier analysis that this group made little over half the profit of Wetzels study. The central cluster is much more even, with possibly a few more from the Wetzels study than the Steingroever study. Again, the right most cluster has a fairly even split between the two studies with Wetzels subjects claiming some larger profit margins in contrast to the Steingroever study. It is interesting to note both studies had two cards with a payoff in the decks and both appeared to use similiar age demographies (Wetzels used students, Steingroever a mean average age of 19.9 years old). The larger number of subjects used in the Steingroever study could be attributed to why the winnings were larger in the Wetzels study. Definitely from looking at this graph and our other clusters younger age profiles, particularly students, seem to be more profitable in this task. 
+# Looking at this graph we can see how these studies was very profitable with it clear to see from the scatter plot the majority broke even or made money. We can also easily tell which study made more money than the other from this scatter plot too with the vast majority of the Wetzels studies equal or above a profit margin of 0 dollars. The cluster primarily consists of Steingroever2011's subjects which confirms our earlier analysis that this group made little over half the profit of Wetzels study. The central cluster is much more even, with possibly a few more from the Wetzels study than the Steingroever study. Again, the right most cluster has a fairly even split between the two studies with Wetzels subjects claiming some larger profit margins in contrast to the Steingroever study. It is interesting to note both studies had two cards with a payoff in the decks and both appeared to use similiar age demographies (Wetzels used students, Steingroever a mean average age of 19.9 years old). The larger number of subjects used in the Steingroever study could be attributed to why the winnings were larger in the Wetzels study as boh studies had 2 cards that paid out. Definitely from looking at this graph and our other clusters younger age profiles, particularly students, seem to be more profitable in this task. We also can see that an average card choice of between 3 and 3.25 appears most profitable from our 3 cluster analysis. Higher values closer to 4 also pay well but not as well as between the aforementioned range, while an average value of under 2.5 is detrimental to participants.  
 
 # ## Elbow Method
 
@@ -271,4 +271,43 @@ for n in range(2, 11):
     print('N = ' + str(n) + ' Silhouette Score: %.3f' % score)
 
 
-# We see the optimal values to use for number of clusters as part of this dataset are either N = 3,5,8 or 9. We use N = 3 as this also aligns with the elbow coefficient and produces the marginally better result in dataset. 
+# We see the optimal values to use for number of clusters as part of this dataset are either N = 3,5,8 or 9. We use N = 3 as this also aligns with the elbow coefficient and produces the marginally better result in dataset.
+
+# In[44]:
+
+
+joined = pd.read_csv('Data/cleaned_all.csv', index_col='Unnamed: 0')
+joined.head()
+
+
+# In[45]:
+
+
+for n in range(2, 11):
+    km = KMeans(n_clusters=n, random_state=42)
+#
+# Fit the KMeans model
+# Have to pick subset of columns as Study column is in string format
+    km.fit_predict(joined)
+#
+# Calculate Silhoutte Score
+#
+    score = silhouette_score(joined, km.labels_, metric='euclidean')
+#
+# Print the score
+#
+    print('N = ' + str(n) + ' Silhouette Score: %.3f' % score)
+
+
+# In[48]:
+
+
+pd.plotting.scatter_matrix(joined, figsize=(10,10), hist_kwds=dict(bins=50), cmap="Set1")
+plt.show()
+
+
+# In[ ]:
+
+
+
+
