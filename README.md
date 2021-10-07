@@ -22,5 +22,5 @@ ghp-import -n -p -f _build/html
 ```
 
 ### Links
-Here is a link to my jupyter [book](https://kiansweeney11.github.io/ca4015-assignment-1/introduction.html)
-Link to github [repo](https://github.com/kiansweeney11/ca4015-assignment-1)
+- Here is a link to my jupyter [book](https://kiansweeney11.github.io/ca4015-assignment-1/introduction.html)
+- Link to github repo https://github.com/kiansweeney11/ca4015-assignment-1
