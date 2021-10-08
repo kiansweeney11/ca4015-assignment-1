@@ -21,19 +21,6 @@ from sklearn.metrics import silhouette_score
 # In[65]:
 
 
-index95 = pd.read_csv('data/index_95.csv')
-index100 = pd.read_csv('data/index_100.csv')
-index150 = pd.read_csv('data/index_150.csv')
-win95 = pd.read_csv('data/wi_95.csv')
-win100 = pd.read_csv('data/wi_100.csv')
-win150 = pd.read_csv('data/wi_150.csv')
-loss95 = pd.read_csv('data/lo_95.csv')
-loss100 = pd.read_csv('data/lo_100.csv')
-loss150 = pd.read_csv('data/lo_150.csv')
-choice95 = pd.read_csv('data/choice_95.csv')
-choice100 = pd.read_csv('data/choice_100.csv')
-choice150 = pd.read_csv('data/choice_150.csv')
-
 cleaned95 = pd.read_csv('data/cleaned95.csv', index_col='Unnamed: 0')
 cleaned100 = pd.read_csv('data/cleaned100.csv', index_col='Unnamed: 0')
 cleaned150 = pd.read_csv('data/cleaned150.csv', index_col='Unnamed: 0')
@@ -45,12 +32,6 @@ standard = pd.read_csv('data/standardized_all.csv', index_col='Unnamed: 0')
 
 
 standard.head()
-
-
-# In[63]:
-
-
-joined.head(6)
 
 
 # ## Methodology
@@ -65,23 +46,29 @@ joined.head(6)
 #  n_i^u = d^{u} + \alpha \times (distance(c,d))
 # $$
 
-# In[67]:
+# In[69]:
 
 
 kmeans_margin_joined = KMeans(n_clusters=3).fit(standard[["Margin", "Most Common Choice Picked"]])
 centroids_betas_joined = kmeans_margin_joined.cluster_centers_
 
 
-# In[68]:
+# In[70]:
 
 
 plt.figure(figsize=(16,8))
 plt.scatter(standard['Margin'], standard['Most Common Choice Picked'], c= kmeans_margin_joined.labels_, cmap = "Set1", alpha=0.5)
 plt.scatter(centroids_betas_joined[:, 0], centroids_betas_joined[:, 1], c='blue', marker='x')
-plt.title('K-Means cluster for all Subjects - Most Common Choice')
+plt.title('K-Means cluster for all Subjects - Most Common Choice Picked')
 plt.xlabel('Margin')
 plt.ylabel('Times Most Common Choice Picked')
 plt.show()
+
+
+# In[91]:
+
+
+centroids_betas_joined[0]
 
 
 # In[ ]:

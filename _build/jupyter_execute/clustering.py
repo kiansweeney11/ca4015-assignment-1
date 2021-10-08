@@ -60,7 +60,7 @@ cleaned150 = pd.read_csv('data/cleaned150.csv', index_col='Unnamed: 0')
 # 
 # In the formula above from [here](https://towardsdatascience.com/unsupervised-learning-techniques-using-python-k-means-and-silhouette-score-for-clustering-d6dd1f30b660) bi represents the shortest mean distance between a point to all points in any other cluster of which i is not a part whereas ai is the mean distance of i and all data points from the same cluster.
 
-# In[171]:
+# In[185]:
 
 
 standard = pd.read_csv('data/standardized_all.csv', index_col='Unnamed: 0')
@@ -98,14 +98,14 @@ for k in K:
     distortions_joined_st.append(kmeanModel.inertia_)
 
 
-# In[183]:
+# In[187]:
 
 
 plt.figure(figsize=(16,8))
 plt.plot(K, distortions_joined_st, 'bx-')
 plt.xlabel('k')
 plt.ylabel('Distortion')
-plt.title('The Elbow Method showing the optimal k for whole Dataset')
+plt.title('The Elbow Method showing the optimal k for standardized Dataset')
 plt.show()
 
 
@@ -135,7 +135,7 @@ centroids_betas_standard = kmeans_margin_standard.cluster_centers_
 plt.figure(figsize=(16,8))
 plt.scatter(standard['Margin'], standard['Most Common Choice Picked'], c= kmeans_margin_standard.labels_, cmap = "Set1", alpha=0.5)
 plt.scatter(centroids_betas_standard[:, 0], centroids_betas_standard[:, 1], c='blue', marker='x')
-plt.title('K-Means cluster for all Subjects - Most Common Choice')
+plt.title('K-Means cluster for all Subjects - Most Common Choice Picked')
 plt.xlabel('Margin')
 plt.ylabel('Times Most Common Choice Picked')
 plt.show()
@@ -175,11 +175,11 @@ plt.ylabel('Average Choice')
 plt.show()
 
 
-# In[181]:
+# In[186]:
 
 
 plt.figure(figsize=(16,8))
-plt.scatter(joined['Margin'], joined['Average Choice'], c=joined['StudyNumber'], cmap='tab10')
+plt.scatter(standard['Margin'], standard['Average Choice'], c=standard['StudyNumber'], cmap='tab10')
 plt.title("Study Clusters for average choice")
 plt.xlabel('Margin')
 plt.ylabel('Average Choice')
