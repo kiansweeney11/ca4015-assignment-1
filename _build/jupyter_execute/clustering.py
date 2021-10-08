@@ -53,9 +53,9 @@ cleaned150 = pd.read_csv('data/cleaned150.csv', index_col='Unnamed: 0')
 # ## Finding our value for k
 # #### Silhouette Scores for our  dataset
 # We now use another metric to test for the optimal number of clusters in our datasets. We try the silhouette coefficient which calculates the robustness of a clustering technique. This metric measures the degree of seperation between clusters. The score scales from -1 to 1. 1 means the clusters are very distinguished and perfectly easy to identify, 0 means the clusters are indifferent or hard to identify and -1 means the clusters are assigned in the wrong way. We will try to use this with our earlier elbow coefficient to confirm the optimal number of clusters for our datasets. The formula for the silhouette score is defined as follows:
-# 
-# \\[ silhouette - score = {b_{i} - a_{i} \over max(bi, a_{i})} \\]
-# 
+# $$
+#  silhouette - score = {b_{i} - a_{i} \over max(bi, a_{i})} \\
+# $$
 # In the formula above from [here](https://towardsdatascience.com/unsupervised-learning-techniques-using-python-k-means-and-silhouette-score-for-clustering-d6dd1f30b660) bi represents the shortest mean distance between a point to all points in any other cluster of which i is not a part whereas ai is the mean distance of i and all data points from the same cluster.
 
 # In[56]:
