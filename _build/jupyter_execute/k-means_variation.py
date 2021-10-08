@@ -46,6 +46,9 @@ joined = pd.read_csv('data/cleaned_all.csv', index_col='Unnamed: 0')
 joined.head()
 
 
+# ## Methodology
+# We are going to attempt to follow the methods stated in {cite:p}`LinPP` in his attempt at constructing a privacy preserving clustering technique based on the k-means algorithm.
+
 # In[ ]:
 
 
