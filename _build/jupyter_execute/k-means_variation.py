@@ -47,7 +47,7 @@ joined.head()
 
 
 # ## Methodology
-# We are going to attempt to follow the methods stated in {cite:p}`LinPP` in his attempt at constructing a privacy preserving clustering technique based on the k-means algorithm.
+# We are going to attempt to follow the methods stated in {cite:p}`LinPP` in his attempt at constructing a privacy preserving clustering technique based on the k-means algorithm. 
 
 # In[ ]:
 
