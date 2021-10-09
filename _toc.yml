@@ -8,3 +8,4 @@ chapters:
 - file: data-processing
 - file: clustering
 - file: k-means_variation
+- file: conclusion

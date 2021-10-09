@@ -228,6 +228,11 @@
    We now do this for the 100 trial and 150 trial experiments
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standardize-our-data">
+   Standardize our Data
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -241,7 +246,7 @@
                 
   <div class="section" id="data-preparation-for-clustering">
 <h1>2. Data preparation for Clustering<a class="headerlink" href="#data-preparation-for-clustering" title="Permalink to this headline">¶</a></h1>
-<p>For our clustering analysis we need to prepare the data accordingly. Following on from our data analysis we want to try to cluster on the profit margin of participants against the subjects most common deck choice or average choice. We will then combine this with a scatter plot showing the study each subject was a part of and see what information we can gather from this. We will be looking at age demographies more so but also look to combine this with the amount of cards that pay out in each study. To do this we need to create appropriate CSV files that we can then use for clustering.</p>
+<p>For our clustering analysis we need to prepare the data accordingly. Following on from our data analysis we want to try to cluster on the profit margin of participants against the number of times the subjects picked their most common deck choice or their average choice. We will then combine this with a scatter plot showing the study each subject was a part of and see what information we can gather from this. We will be looking at age demographies more so but also look to combine this with the amount of cards that pay out in each study and gender breakdowns also. To do this we need to create appropriate CSV files that we can then use for clustering.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -259,7 +264,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15768</span><span class="o">/</span><span class="mf">2629298152.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_16440</span><span class="o">/</span><span class="mf">2629298152.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sn</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1729,6 +1734,7 @@ Name: Most Common Choice, dtype: int64
 <p>617 rows × 5 columns</p>
 </div></div></div>
 </div>
+<p>For some of our comparisons we may want to draw on in our k-means clusters we need to change our study values from strings to integers. After plotting our k-means algorithm this will allow us to plot a scatter plot comprising of the different studies which will be colour coded based on their numbers here.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">replacements_study</span> <span class="o">=</span> <span class="p">{</span>
@@ -1877,6 +1883,10 @@ Name: Most Common Choice, dtype: int64
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="standardize-our-data">
+<h2>Standardize our Data<a class="headerlink" href="#standardize-our-data" title="Permalink to this headline">¶</a></h2>
+<p>To work best with our k-means algorithm we choose to standardize our values in our joined dataset. This is because the k-means algorithm is a distance based algorithm, calculating the similarity between points based on distance. This gives the data a mean of 0 and standard deviation of 1 and gives common ground between features which would use different values such as our margin and average choice columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">mergedall</span><span class="p">)</span>
