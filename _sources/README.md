@@ -10,6 +10,8 @@ Iowa Gambling Task assignment for CA4015 Advanced Machine Learning. Here we look
 - numpy
 - pandas
 
+Python v3.8.8 was used for this project as per our data-analysis section.
+
 ### Building the Book
 To build the book after new code has been merged we must firstly build the html of the book running the command:
 ```

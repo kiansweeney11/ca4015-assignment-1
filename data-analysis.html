@@ -296,7 +296,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_13912</span><span class="o">/</span><span class="mf">950747112.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_28752</span><span class="o">/</span><span class="mf">950747112.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -491,6 +491,20 @@
 </div>
 </div>
 </div>
+<p>Let’s just confirm our python version we are using on our scripts</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">platform</span> <span class="kn">import</span> <span class="n">python_version</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">python_version</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.8.8
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="initial-data-exploration-how-many-per-study-made-profit">
@@ -567,7 +581,7 @@ dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x1c611ab4eb0&gt;
 </pre></div>
 </div>
-<img alt="_images/data-analysis_9_1.png" src="_images/data-analysis_9_1.png" />
+<img alt="_images/data-analysis_11_1.png" src="_images/data-analysis_11_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -654,7 +668,7 @@ dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x1c61330ea60&gt;
 </pre></div>
 </div>
-<img alt="_images/data-analysis_15_1.png" src="_images/data-analysis_15_1.png" />
+<img alt="_images/data-analysis_17_1.png" src="_images/data-analysis_17_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -741,7 +755,7 @@ dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x1c613363d60&gt;
 </pre></div>
 </div>
-<img alt="_images/data-analysis_21_1.png" src="_images/data-analysis_21_1.png" />
+<img alt="_images/data-analysis_23_1.png" src="_images/data-analysis_23_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1091,7 +1105,7 @@ Name: Study, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Fridberg Study Win/Loss per round&#39;}&gt;
 </pre></div>
 </div>
-<img alt="_images/data-analysis_52_1.png" src="_images/data-analysis_52_1.png" />
+<img alt="_images/data-analysis_54_1.png" src="_images/data-analysis_54_1.png" />
 </div>
 </div>
 <div class="section" id="next-we-move-onto-the-150-trial-experiments-and-see-how-these-studies-flowed-over-the-course-of-their-trials">
@@ -1322,7 +1336,7 @@ Name: Study, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Steingroever2011&#39;s study&quot;}&gt;
 </pre></div>
 </div>
-<img alt="_images/data-analysis_60_1.png" src="_images/data-analysis_60_1.png" />
+<img alt="_images/data-analysis_62_1.png" src="_images/data-analysis_62_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1344,7 +1358,7 @@ Name: Study, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Winnings per round for Wetzels study&#39;}&gt;
 </pre></div>
 </div>
-<img alt="_images/data-analysis_62_1.png" src="_images/data-analysis_62_1.png" />
+<img alt="_images/data-analysis_64_1.png" src="_images/data-analysis_64_1.png" />
 </div>
 </div>
 </div>
