@@ -252,7 +252,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_14568</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_16100</span><span class="o">/</span><span class="mf">992599997.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sn</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -365,6 +365,12 @@
 \[
  n_i^u = d^{u} + \alpha \times (distance(c,d))
 \]</div>
+<p>We then use the following equation:</p>
+<div class="math notranslate nohighlight">
+\[
+ p_i = |D| \times Rand(s)
+\]</div>
+<p>This is to obtain the position of the noise from eq(1) in dataset D. This leads us on to our data recovery phase. Our first step in the phase is to use eq(2) and obtain p_i for position of noise in D’ and commence removals. Then we delete all the noises and the original dataset D can be recovered immediately.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans_margin_joined</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">standard</span><span class="p">[[</span><span class="s2">&quot;Margin&quot;</span><span class="p">,</span> <span class="s2">&quot;Most Common Choice Picked&quot;</span><span class="p">]])</span>
@@ -391,15 +397,186 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centroids_betas_joined</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centroids_betas_joined</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.25654801, -0.38433864])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.25654801, -0.38433864],
+       [ 1.41597414,  1.55028183],
+       [-1.1113607 , -0.05610375]])
 </pre></div>
 </div>
 </div>
+</div>
+<p>We can tell from our above cluster centres that cluster 0 is in red, cluster 1 is the centroid of the orange cluster and cluster 2 is in grey.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">standard</span><span class="p">[</span><span class="s1">&#39;cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans_margin_joined</span><span class="o">.</span><span class="n">labels_</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">standard</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Most Common Choice Picked</th>
+      <th>Most Common Choice</th>
+      <th>Average Choice</th>
+      <th>StudyNumber</th>
+      <th>cluster</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.044988</td>
+      <td>1.062672</td>
+      <td>1.234405</td>
+      <td>2.271920</td>
+      <td>-1.60938</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.414346</td>
+      <td>-0.804770</td>
+      <td>1.234405</td>
+      <td>-0.410317</td>
+      <td>-1.60938</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.474318</td>
+      <td>-0.559054</td>
+      <td>1.234405</td>
+      <td>0.268730</td>
+      <td>-1.60938</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.294400</td>
+      <td>-0.559054</td>
+      <td>1.234405</td>
+      <td>0.370587</td>
+      <td>-1.60938</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.205371</td>
+      <td>-0.165908</td>
+      <td>1.234405</td>
+      <td>1.049635</td>
+      <td>-1.60938</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster2</span> <span class="o">=</span> <span class="n">standard</span><span class="p">[</span><span class="n">standard</span><span class="o">.</span><span class="n">cluster</span><span class="o">==</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">cluster2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Most Common Choice Picked</th>
+      <th>Most Common Choice</th>
+      <th>Average Choice</th>
+      <th>StudyNumber</th>
+      <th>cluster</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>16</th>
+      <td>-1.154008</td>
+      <td>0.374667</td>
+      <td>-0.923181</td>
+      <td>-1.233097</td>
+      <td>1.318707</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>-1.074044</td>
+      <td>-0.067622</td>
+      <td>-2.001975</td>
+      <td>-1.319109</td>
+      <td>1.318707</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>-0.594263</td>
+      <td>1.357531</td>
+      <td>-0.923181</td>
+      <td>-0.889046</td>
+      <td>1.318707</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>-1.673771</td>
+      <td>2.586111</td>
+      <td>-0.923181</td>
+      <td>-1.899695</td>
+      <td>1.318707</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>-1.193990</td>
+      <td>2.094679</td>
+      <td>-0.923181</td>
+      <td>-0.631008</td>
+      <td>1.318707</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
