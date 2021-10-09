@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # 2. Data preparation for Clustering
-# For our clustering analysis we need to prepare the data accordingly. Following on from our data analysis we want to try to cluster on the profit margin of participants against the subjects most common deck choice or average choice. We will then combine this with a scatter plot showing the study each subject was a part of and see what information we can gather from this. We will be looking at age demographies more so but also look to combine this with the amount of cards that pay out in each study. To do this we need to create appropriate CSV files that we can then use for clustering. 
+# For our clustering analysis we need to prepare the data accordingly. Following on from our data analysis we want to try to cluster on the profit margin of participants against the number of times the subjects picked their most common deck choice or their average choice. We will then combine this with a scatter plot showing the study each subject was a part of and see what information we can gather from this. We will be looking at age demographies more so but also look to combine this with the amount of cards that pay out in each study and gender breakdowns also. To do this we need to create appropriate CSV files that we can then use for clustering. 
 
 # In[1]:
 
@@ -286,6 +286,8 @@ mergedall['Most Common Choice'] = mergedall['Most Common Choice'].astype('int64'
 mergedall
 
 
+# For some of our comparisons we may want to draw on in our k-means clusters we need to change our study values from strings to integers. After plotting our k-means algorithm this will allow us to plot a scatter plot comprising of the different studies which will be colour coded based on their numbers here.
+
 # In[117]:
 
 
@@ -312,6 +314,9 @@ mergedall
 
 mergedall.to_csv('Data/cleaned_all.csv')
 
+
+# ## Standardize our Data
+# To work best with our k-means algorithm we choose to standardize our values in our joined dataset. This is because the k-means algorithm is a distance based algorithm, calculating the similarity between points based on distance. This gives the data a mean of 0 and standard deviation of 1 and gives common ground between features which would use different values such as our margin and average choice columns.
 
 # In[129]:
 
@@ -344,10 +349,4 @@ standard_all
 
 
 standard_all.to_csv('data/standardized_all.csv')
-
-
-# In[ ]:
-
-
-
 
