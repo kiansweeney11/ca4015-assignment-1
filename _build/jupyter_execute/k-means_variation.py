@@ -45,6 +45,14 @@ standard.head()
 # $$
 #  n_i^u = d^{u} + \alpha \times (distance(c,d))
 # $$
+# 
+# We then use the following equation:
+# 
+# $$
+#  p_i = |D| \times Rand(s)
+# $$
+# 
+# This is to obtain the position of the noise from eq(1) in dataset D. This leads us on to our data recovery phase. Our first step in the phase is to use eq(2) and obtain p_i for position of noise in D' and commence removals. Then we delete all the noises and the original dataset D can be recovered immediately.
 
 # In[69]:
 
@@ -65,10 +73,26 @@ plt.ylabel('Times Most Common Choice Picked')
 plt.show()
 
 
-# In[91]:
+# In[105]:
 
 
-centroids_betas_joined[0]
+centroids_betas_joined
+
+
+# We can tell from our above cluster centres that cluster 0 is in red, cluster 1 is the centroid of the orange cluster and cluster 2 is in grey.
+
+# In[110]:
+
+
+standard['cluster'] = kmeans_margin_joined.labels_.tolist()
+standard.head()
+
+
+# In[139]:
+
+
+cluster2 = standard[standard.cluster==2]
+cluster2.head()
 
 
 # In[ ]:
