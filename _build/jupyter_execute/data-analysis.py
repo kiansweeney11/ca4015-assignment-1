@@ -28,6 +28,15 @@ index100 = pd.read_csv('data/index_100.csv')
 index150 = pd.read_csv('data/index_150.csv')
 
 
+# Let's just confirm our python version we are using on our scripts
+
+# In[55]:
+
+
+from platform import python_version
+print(python_version())
+
+
 # # Initial data exploration - How many per study made profit?
 
 # Here we check the study that used 95 trials of the experiment and see how many of the 15 subjects made profit.
