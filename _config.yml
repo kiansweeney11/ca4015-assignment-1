@@ -11,12 +11,12 @@ only_build_toc_files: true
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
-  stderr_output             : remove  # One of 'show', 'remove', 'remove-warn', 'warn', 'error', 'severe'
+  stderr_output: remove  # One of 'show', 'remove', 'remove-warn', 'warn', 'error', 'severe'
 
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
-    targetname: book.tex
+    targetname: assignment1_ks.tex
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
@@ -33,3 +33,4 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  baseurl: "https://kiansweeney11.github.io/ca4015-assignment-1/intro.html"  # The base URL where your book will be hosted.
