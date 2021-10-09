@@ -35,7 +35,7 @@ standard.head()
 
 
 # ## Methodology
-# We are going to attempt to follow the methods stated in {cite:t}`LinPP` in his attempt at constructing a privacy preserving clustering technique based on the k-means algorithm. This involves a 2 step process which is as follows:
+# We are going to attempt to follow the methods stated in {cite}`LinPP` in his attempt at constructing a privacy preserving clustering technique based on the k-means algorithm. This involves a 2 step process which is as follows:
 # 
 # 1. Data Protection Phase and
 # 2. Data Recovery Phase
