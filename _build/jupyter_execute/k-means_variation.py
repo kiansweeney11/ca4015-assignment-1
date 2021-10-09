@@ -35,7 +35,7 @@ standard.head()
 
 
 # ## Methodology
-# We are going to attempt to follow the methods stated in {cite:p}`LinPP` in his attempt at constructing a privacy preserving clustering technique based on the k-means algorithm. This involves a 2 step process which is as follows:
+# We are going to attempt to follow the methods stated in {cite:t}`LinPP` in his attempt at constructing a privacy preserving clustering technique based on the k-means algorithm. This involves a 2 step process which is as follows:
 # 
 # 1. Data Protection Phase and
 # 2. Data Recovery Phase
@@ -43,16 +43,16 @@ standard.head()
 # The first phase involving the data protection phase involves 4 key steps. Firstly, we apply the K-means algorithm on our dataset and then we select one of the clusters from the result. In our cluster let's say A, we select the furthest data point away from the centroid of A. We generate the set of noises by the using the following equation:
 # 
 # $$
-#  n_i^u = d^{u} + \alpha \times (distance(c,d))
+#  n_i^u = d^{u} + \alpha \times (distance(c,d)) \tag{1}
 # $$
 # 
 # We then use the following equation:
 # 
 # $$
-#  p_i = |D| \times Rand(s)
+#  p_i = |D| \times Rand(s) \tag{2}
 # $$
 # 
-# This is to obtain the position of the noise from eq(1) in dataset D. This leads us on to our data recovery phase. Our first step in the phase is to use eq(2) and obtain p_i for position of noise in D' and commence removals. Then we delete all the noises and the original dataset D can be recovered immediately.
+# This is to obtain the position of the noise from eq(1) in dataset D. This leads us on to our data recovery phase. Our first step in the phase is to use eq(2) and obtain p_i for position of noise in D' and commence removals. Then we delete all the noises and the original dataset D can be recovered immediately. The end result should be a dataset that shares cluster information but protects the privacy of the individuals at hand.
 
 # In[69]:
 
