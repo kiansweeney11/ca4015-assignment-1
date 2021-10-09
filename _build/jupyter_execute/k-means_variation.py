@@ -3,8 +3,6 @@
 
 # # 4. K-Means Variation
 
-# Import required libraries again.
-
 # In[1]:
 
 

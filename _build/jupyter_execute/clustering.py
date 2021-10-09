@@ -3,7 +3,6 @@
 
 # # 3. Clustering
 # ## After our analysis of the data we must now cluster the data accordingly
-# Importing approriate libraries
 
 # In[1]:
 
