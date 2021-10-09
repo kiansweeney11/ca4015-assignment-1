@@ -3,12 +3,15 @@
 
 title: CA4015 Assignment 1
 author: Kian Sweeney
+copyright: 2021
 logo: dcu-logo.png
+only_build_toc_files: true
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  stderr_output             : remove  # One of 'show', 'remove', 'remove-warn', 'warn', 'error', 'severe'
 
 # Define the name of the latex output file for PDF builds
 latex:
