@@ -357,7 +357,7 @@
 <li><p>Data Protection Phase and</p></li>
 <li><p>Data Recovery Phase</p></li>
 </ol>
-<p>The first phase involving the data protection phase involves 4 key steps. Firstly, we apply the K-means algorithm on our dataset and then we select one of the clusters from the result. In our cluster let’s say A, we select the furthest data point away from the centroid of A. We generate the set of noises by the using the following equation:</p>
+<p>The first phase involving the data protection phase involves 4 key steps. Firstly, we apply the K-means algorithm on our dataset and then we select one of the clusters from the result. In our cluster let’s say A, we select the furthest data away from the centroid of A. We generate the set of noises by the using the following equation:</p>
 <div class="math notranslate nohighlight">
 \[
  n_i^u = d^{u} + \alpha \times (distance(c,d)) \tag{1}
@@ -575,6 +575,374 @@
 </table>
 </div></div></div>
 </div>
+<p>From looking at our graph and cluster 2, I feel data points with margin values less than -2 would be classified as noise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noises</span> <span class="o">=</span> <span class="n">cluster2</span><span class="p">[</span><span class="n">cluster2</span><span class="o">.</span><span class="n">Margin</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">noises</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Most Common Choice Picked</th>
+      <th>Most Common Choice</th>
+      <th>Average Choice</th>
+      <th>StudyNumber</th>
+      <th>cluster</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>43</th>
+      <td>-2.593351</td>
+      <td>4.600983</td>
+      <td>-0.923181</td>
+      <td>-2.114727</td>
+      <td>1.318707</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>-3.233059</td>
+      <td>3.224973</td>
+      <td>-0.923181</td>
+      <td>-2.566293</td>
+      <td>1.318707</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>287</th>
+      <td>-2.501393</td>
+      <td>-0.657340</td>
+      <td>-2.001975</td>
+      <td>-2.340510</td>
+      <td>-0.877358</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>404</th>
+      <td>-2.829243</td>
+      <td>0.522097</td>
+      <td>-0.923181</td>
+      <td>-1.630905</td>
+      <td>0.220674</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>450</th>
+      <td>-3.273040</td>
+      <td>-0.067622</td>
+      <td>-0.923181</td>
+      <td>-2.405019</td>
+      <td>0.586685</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>501</th>
+      <td>-2.853232</td>
+      <td>0.522097</td>
+      <td>-0.923181</td>
+      <td>-1.888943</td>
+      <td>0.586685</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>531</th>
+      <td>-2.453415</td>
+      <td>0.522097</td>
+      <td>-0.923181</td>
+      <td>-0.953555</td>
+      <td>0.586685</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>547</th>
+      <td>-3.113113</td>
+      <td>0.522097</td>
+      <td>-0.923181</td>
+      <td>-2.146981</td>
+      <td>0.586685</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>572</th>
+      <td>-2.505391</td>
+      <td>0.522097</td>
+      <td>-0.923181</td>
+      <td>-1.308358</td>
+      <td>0.586685</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>573</th>
+      <td>-2.505391</td>
+      <td>0.522097</td>
+      <td>-0.923181</td>
+      <td>-1.308358</td>
+      <td>0.586685</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centre2</span> <span class="o">=</span> <span class="n">centroids_betas_joined</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">xcentre</span> <span class="o">=</span> <span class="n">centre2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ycentre</span> <span class="o">=</span> <span class="n">centre2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">marginnoise</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">3.4</span><span class="p">,</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">marginnoise</span> <span class="o">=</span> <span class="n">marginnoise</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Margin&#39;</span><span class="p">})</span>
+<span class="n">marginnoise</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-2.944676</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-3.220211</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-2.776424</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-2.989481</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-3.190484</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choicenoise</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">choicenoise</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.679879</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.422906</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.807980</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.758959</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.336886</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choicenoise</span> <span class="o">=</span> <span class="n">choicenoise</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Most Common Choice Picked&#39;</span><span class="p">})</span>
+<span class="n">choicenoise</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Most Common Choice Picked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.679879</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.422906</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.807980</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.758959</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.336886</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noise</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">marginnoise</span><span class="p">,</span> <span class="n">choicenoise</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Most Common Choice Picked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-2.944676</td>
+      <td>3.679879</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-3.220211</td>
+      <td>0.422906</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-2.776424</td>
+      <td>1.807980</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-2.989481</td>
+      <td>1.758959</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-3.190484</td>
+      <td>1.336886</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Our noise data is now generated we add this back to the original dataset now.</p>
 </div>
 </div>
 
