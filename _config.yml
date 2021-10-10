@@ -33,4 +33,4 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-  baseurl: "https://kiansweeney11.github.io/ca4015-assignment-1/intro.html"  # The base URL where your book will be hosted.
+  baseurl: "https://kiansweeney11.github.io/ca4015-assignment-1/introduction.html"  # The base URL where your book will be hosted.
