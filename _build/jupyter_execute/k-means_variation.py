@@ -38,7 +38,7 @@ standard.head()
 # 1. Data Protection Phase and
 # 2. Data Recovery Phase
 # 
-# The first phase involving the data protection phase involves 4 key steps. Firstly, we apply the K-means algorithm on our dataset and then we select one of the clusters from the result. In our cluster let's say A, we select the furthest data point away from the centroid of A. We generate the set of noises by the using the following equation:
+# The first phase involving the data protection phase involves 4 key steps. Firstly, we apply the K-means algorithm on our dataset and then we select one of the clusters from the result. In our cluster let's say A, we select the furthest data away from the centroid of A. We generate the set of noises by the using the following equation:
 # 
 # $$
 #  n_i^u = d^{u} + \alpha \times (distance(c,d)) \tag{1}
@@ -86,12 +86,64 @@ standard['cluster'] = kmeans_margin_joined.labels_.tolist()
 standard.head()
 
 
-# In[139]:
+# In[174]:
 
 
 cluster2 = standard[standard.cluster==2]
 cluster2.head()
 
+
+# From looking at our graph and cluster 2, I feel data points with margin values less than -2 would be classified as noise.
+
+# In[176]:
+
+
+noises = cluster2[cluster2.Margin <= -2]
+noises
+
+
+# In[185]:
+
+
+centre2 = centroids_betas_joined[2]
+xcentre = centre2[0]
+ycentre = centre2[1]
+
+
+# In[192]:
+
+
+marginnoise = pd.DataFrame(np.random.uniform(-3.4,-2.5,15))
+
+
+# In[197]:
+
+
+marginnoise = marginnoise.rename(columns={0: 'Margin'})
+marginnoise.head()
+
+
+# In[201]:
+
+
+choicenoise = pd.DataFrame(np.random.uniform(-0.1,4,15))
+choicenoise.head()
+
+
+# In[202]:
+
+
+choicenoise = choicenoise.rename(columns={0: 'Most Common Choice Picked'})
+choicenoise.head()
+
+
+# In[207]:
+
+
+noise = pd.concat([marginnoise, choicenoise], axis=1)
+
+
+# Our noise data is now generated we add this back to the original dataset now.
 
 # In[ ]:
 
