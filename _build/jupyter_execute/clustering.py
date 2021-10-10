@@ -153,6 +153,56 @@ plt.colorbar()
 
 # From earlier our studies are as follows: Fridberg: 0, Horstmann: 1, Kjome: 2, Maia: 3, SteingroverInPrep: 4, Premkumar: 5, Wood: 6, Worthy: 7, Steingroever2011: 8 and Wetzels: 9. Immediately we notice our neon scatters here on both the left and right side of the plot. There is a large amount of subjects from Steingroever2011's study that regularly pick their favoured outcome, a lot of these can be seen to the right of the plot in the more profitable outcome while picking this selection 100 trials or more in the 150 trial experiment. The majority of this study picks their most common choice at least 80 times or more from our plot also. We can see a couple of outliers in this study also, picking their favoured outcome well over a hundred times with poor results. Again, this study is based on the youngest specifically mentioned mean of subjects (19.9 years old) and it certainly seems to play a part in their decision making. We can see from our scatterplot something similar with the Wetzels study, a student based study with a noticeable group of these subjects picking their favoured choice 80 times or more and winning money over the course of their trials. It is also interesting to note the clusters to the left and centre from our K-means plot containing a sizable proportion of subjects from the Wood study (in pink). This is a particularly interesting study as the first 90 participants were between the ages of 18-40 and the rest had a mean age of 76.98 years old. Despite it being a 100 trial study the vast majority of this study pick their preferred choice around 40-50 times, less than or equal to half of their trials. A lot of these participants also lose money over the course of their trials which raises interesting questions about how age can impair decision making. It is interesting to note when researching the Wood et al study that it was regarded as an outlier in that age over time impairs performance in the IGT {cite}`beitziowa`. However, in general it is seen as something that can negatively impact decision making over time. It also suggests in [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4115037) in later adulthood that a low loss strategy is seen more predominately than the end profit. The Horstmann study follows a similar dispersion to the Woods study with a large amount of subjects centred around the middle cluster and also picking their preffered choice 40-50 out of 100 trials which could be seen as a relatively low numbers and maybe hints at an adaptive approach to the game, where after a period of maybe settling for preferred decks they adapt as their wins/losses dictate. With a similar number of participants in this trial to the Woods trial the one key difference is far more of these subjects lean to the right cluster (breaking even or making a marginal gain). Again, looking at the age demography this is a young adult group with a mean age of 25.6 years old. Something suggested in [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4115037) could hold true here in that adults past adolescence prefer experimental decision making instead of just frequency preference. This could also explain the cohort of the Horstmann study who followed a similar decision making process (40-50 most common choice) but lost money in the end. Another study which also has an interesting cluster is the Worthy study, which has 35 subjects the majority of which (22) is female. This study contains a lot of subjects who picked their most common choice less than 40 times and very few subjects are above 50 or so. It is something that ties in with some of the potential behavioural findings of {cite}`denbosgender` in that women are more sensitive to losses in the long term profitable decks. This would explain the constant tinkering between the decks and the lower most common choice value among many subjects in this study. The aforementioned Horstmann study also has a large number of female participants in it (82/162) and as mentioned previously has similarly lower count of the times the most common choice was picked. It is something mentioned in {cite}`denbosgender2` that women pick more disadvantageous decks as they mix a policy of exploration and exploitation, whereas as men will after initial exploration focus on exploitation then. This could definitely explain why these studies with a lower common choice pick and specified amount of females taking part in the study have a more mixed approach to the task and why they float around breaking even. They obviously accept some losses in exploration but exploit the winning cards regularly enough to be around even.
 
+# In[233]:
+
+
+joined['cluster'] = kmeans_margin_joined.labels_.tolist()
+
+
+# In[194]:
+
+
+heatmap = joined[['StudyNumber', 'cluster']]
+replacements = {
+  0: r'Fridberg',  
+  1: r'Horstmann',
+  2: r'Kjome',
+  3: r'Maia',
+  4: r'SteingroverInPrep',
+  5: r'Premkumar',
+  6: r'Wood',
+  7: r'Worthy',
+  8: r'Steingroever2011',
+  9: r'Wetzels',  
+}
+
+heatmap['Study'] = heatmap.StudyNumber.replace(replacements_study, regex=True)
+heatmap = heatmap.drop(columns=['StudyNumber'])
+
+
+# In[210]:
+
+
+counts = heatmap.groupby('Study')['cluster'].value_counts()
+
+
+# In[232]:
+
+
+histdf = pd.DataFrame(counts)
+histdf = histdf.rename(columns={'cluster': 'number'})
+plt = histdf.plot.bar(figsize=(16, 8))
+plt
+
+
+# In[235]:
+
+
+centroids_betas_standard
+
+
+# We see our cluster centres above, the left most cluster is denoted as 1, the right most cluster denoted as 2 and the central cluster as 0.
+
 # ## Next we look at the clusters involving a subject's average choice and the profit / loss margin they made.
 
 # In[179]:
