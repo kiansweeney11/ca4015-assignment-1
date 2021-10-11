@@ -23,6 +23,17 @@ We run this from just outside the directory where the source code comes from. Th
 ghp-import -n -p -f _build/html
 ```
 
+### Building PDF
+To build a PDF version of the book we must ensure the necessary packages are installed. The package we need for our PDF is installed as follows:
+```
+pip install pyppeteer
+```
+
+After this is installed we can then proceed to build our PDF as follows:
+```
+jupyter-book build mybookname/ --builder pdfhtml
+```
+
 ### Links
 - Here is a link to my jupyter [book](https://kiansweeney11.github.io/ca4015-assignment-1/introduction.html)
 - Link to github repo https://github.com/kiansweeney11/ca4015-assignment-1
