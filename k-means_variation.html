@@ -843,6 +843,218 @@
 </div>
 <p>Our furtherest point away from the centroid of our choosen cluster 0 is the first point we see in the array here. This will be denoted as our data “d” the furtherest point from our centroid, C of cluster 0.</p>
 <p>We now need to use this distance value obtained and combine it with our “noise offset ratio” denoted as α. From our previousy cited paper this value is typically in the range 0 - 0.05. We will use 0.05 for α here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">distances</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">*</span> <span class="n">alpha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2446213497147065
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now add our noises to dataset we generated above. This is the last step as part of our data protection phase.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusterframes</span> <span class="o">=</span> <span class="n">standard</span><span class="p">[[</span><span class="s1">&#39;Margin&#39;</span><span class="p">,</span> <span class="s1">&#39;Most Common Choice Picked&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusterframes</span> <span class="o">=</span> <span class="n">clusterframes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span>
+<span class="n">clusterframes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Most Common Choice Picked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.044988</td>
+      <td>1.062672</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.414346</td>
+      <td>-0.804770</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.474318</td>
+      <td>-0.559054</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.294400</td>
+      <td>-0.559054</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.205371</td>
+      <td>-0.165908</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>-3.122292</td>
+      <td>3.384886</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>-3.313970</td>
+      <td>0.733010</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>-2.732256</td>
+      <td>1.588493</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>-2.889044</td>
+      <td>3.483566</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>-2.705425</td>
+      <td>2.669901</td>
+    </tr>
+  </tbody>
+</table>
+<p>632 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>We now need to randomly shuffle our dataframe with noises added so it is harder to identify our noise.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">clusterframes</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sample</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Margin</th>
+      <th>Most Common Choice Picked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.613185</td>
+      <td>0.522097</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.462324</td>
+      <td>-0.018478</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.354373</td>
+      <td>-0.706483</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.914117</td>
+      <td>-0.313338</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1.321931</td>
+      <td>-0.755627</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>627</th>
+      <td>0.245353</td>
+      <td>-0.952199</td>
+    </tr>
+    <tr>
+      <th>628</th>
+      <td>-0.194446</td>
+      <td>0.079808</td>
+    </tr>
+    <tr>
+      <th>629</th>
+      <td>0.045444</td>
+      <td>-0.411624</td>
+    </tr>
+    <tr>
+      <th>630</th>
+      <td>-3.313970</td>
+      <td>0.733010</td>
+    </tr>
+    <tr>
+      <th>631</th>
+      <td>-0.698216</td>
+      <td>-0.313338</td>
+    </tr>
+  </tbody>
+</table>
+<p>632 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>With our dataframe randomly assigned we now begin our data recovery phase.</p>
 </div>
 </div>
 
