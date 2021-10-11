@@ -207,7 +207,7 @@ centroids_betas_standard
 
 # Using our histogram above it confirms some of our previous statements from earlier. We do indeed see a large majority of Wood study subjects in the less profitable and more varied choice selection cluster to the left of our k-means scatter plot.
 
-# In[62]:
+# In[64]:
 
 
 standard.plot.scatter(x='Margin', y='Average Choice', c='StudyNumber', cmap='tab10', figsize=(16, 8))
