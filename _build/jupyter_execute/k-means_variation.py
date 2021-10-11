@@ -162,6 +162,8 @@ distances[0]
 
 # Our furtherest point away from the centroid of our choosen cluster 0 is the first point we see in the array here. This will be denoted as our data "d" the furtherest point from our centroid, C of cluster 0.
 
+# We now need to use this distance value obtained and combine it with our "noise offset ratio" denoted as α. From our previousy cited paper this value is typically in the range 0 - 0.05. We will use 0.05 for α here.
+
 # In[ ]:
 
 
