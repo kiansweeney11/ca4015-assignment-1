@@ -164,6 +164,45 @@ distances[0]
 
 # We now need to use this distance value obtained and combine it with our "noise offset ratio" denoted as α. From our previousy cited paper this value is typically in the range 0 - 0.05. We will use 0.05 for α here.
 
+# In[54]:
+
+
+d = distances[0][0]
+alpha = 0.05
+
+
+# In[55]:
+
+
+d * alpha
+
+
+# We will now add our noises to dataset we generated above. This is the last step as part of our data protection phase.
+
+# In[58]:
+
+
+clusterframes = standard[['Margin', 'Most Common Choice Picked']]
+
+
+# In[59]:
+
+
+clusterframes = clusterframes.append(noise)
+clusterframes
+
+
+# We now need to randomly shuffle our dataframe with noises added so it is harder to identify our noise.
+
+# In[60]:
+
+
+sample = clusterframes.sample(frac=1).reset_index(drop=True)
+sample
+
+
+# With our dataframe randomly assigned we now begin our data recovery phase.
+
 # In[ ]:
 
 
