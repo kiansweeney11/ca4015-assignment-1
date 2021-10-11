@@ -1,4 +1,1 @@
-# References
-```{bibliography}
-style: unsrt
-```
+# Bibliography
