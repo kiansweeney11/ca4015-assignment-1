@@ -399,14 +399,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.25654801, -0.38433864],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.10872288, -0.06074673],
        [ 1.41597414,  1.55028183],
-       [-1.1113607 , -0.05610375]])
+       [ 0.25911929, -0.38263846]])
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can tell from our above cluster centres that cluster 0 is in red, cluster 1 is the centroid of the orange cluster and cluster 2 is in grey.</p>
+<p>We can tell from our above cluster centres that cluster 0 is in red, cluster 1 is the right most cluster and cluster 2 is in grey.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">standard</span><span class="p">[</span><span class="s1">&#39;cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans_margin_joined</span><span class="o">.</span><span class="n">labels_</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -458,7 +458,7 @@
       <td>1.234405</td>
       <td>-0.410317</td>
       <td>-1.60938</td>
-      <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>2</th>
@@ -467,7 +467,7 @@
       <td>1.234405</td>
       <td>0.268730</td>
       <td>-1.60938</td>
-      <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>3</th>
@@ -476,7 +476,7 @@
       <td>1.234405</td>
       <td>0.370587</td>
       <td>-1.60938</td>
-      <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>4</th>
@@ -485,7 +485,7 @@
       <td>1.234405</td>
       <td>1.049635</td>
       <td>-1.60938</td>
-      <td>0</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -493,8 +493,8 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster2</span> <span class="o">=</span> <span class="n">standard</span><span class="p">[</span><span class="n">standard</span><span class="o">.</span><span class="n">cluster</span><span class="o">==</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">cluster2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster0</span> <span class="o">=</span> <span class="n">standard</span><span class="p">[</span><span class="n">standard</span><span class="o">.</span><span class="n">cluster</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">cluster0</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -533,7 +533,7 @@
       <td>-0.923181</td>
       <td>-1.233097</td>
       <td>1.318707</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>20</th>
@@ -542,7 +542,7 @@
       <td>-2.001975</td>
       <td>-1.319109</td>
       <td>1.318707</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>26</th>
@@ -551,7 +551,7 @@
       <td>-0.923181</td>
       <td>-0.889046</td>
       <td>1.318707</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>28</th>
@@ -560,7 +560,7 @@
       <td>-0.923181</td>
       <td>-1.899695</td>
       <td>1.318707</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>37</th>
@@ -569,16 +569,16 @@
       <td>-0.923181</td>
       <td>-0.631008</td>
       <td>1.318707</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>From looking at our graph and cluster 2, I feel data points with margin values less than -2 would be classified as noise.</p>
+<p>From looking at our graph and cluster 0, I feel data points with margin values less than -2 would be classified as noise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noises</span> <span class="o">=</span> <span class="n">cluster2</span><span class="p">[</span><span class="n">cluster2</span><span class="o">.</span><span class="n">Margin</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noises</span> <span class="o">=</span> <span class="n">cluster0</span><span class="p">[</span><span class="n">cluster0</span><span class="o">.</span><span class="n">Margin</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">noises</span>
 </pre></div>
 </div>
@@ -618,7 +618,7 @@
       <td>-0.923181</td>
       <td>-2.114727</td>
       <td>1.318707</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>49</th>
@@ -627,7 +627,7 @@
       <td>-0.923181</td>
       <td>-2.566293</td>
       <td>1.318707</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>287</th>
@@ -636,7 +636,7 @@
       <td>-2.001975</td>
       <td>-2.340510</td>
       <td>-0.877358</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>404</th>
@@ -645,7 +645,7 @@
       <td>-0.923181</td>
       <td>-1.630905</td>
       <td>0.220674</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>450</th>
@@ -654,7 +654,7 @@
       <td>-0.923181</td>
       <td>-2.405019</td>
       <td>0.586685</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>501</th>
@@ -663,7 +663,7 @@
       <td>-0.923181</td>
       <td>-1.888943</td>
       <td>0.586685</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>531</th>
@@ -672,7 +672,7 @@
       <td>-0.923181</td>
       <td>-0.953555</td>
       <td>0.586685</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>547</th>
@@ -681,7 +681,7 @@
       <td>-0.923181</td>
       <td>-2.146981</td>
       <td>0.586685</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>572</th>
@@ -690,7 +690,7 @@
       <td>-0.923181</td>
       <td>-1.308358</td>
       <td>0.586685</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>573</th>
@@ -699,20 +699,11 @@
       <td>-0.923181</td>
       <td>-1.308358</td>
       <td>0.586685</td>
-      <td>2</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centre2</span> <span class="o">=</span> <span class="n">centroids_betas_joined</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">xcentre</span> <span class="o">=</span> <span class="n">centre2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">ycentre</span> <span class="o">=</span> <span class="n">centre2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -721,113 +712,20 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">marginnoise</span> <span class="o">=</span> <span class="n">marginnoise</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;Margin&#39;</span><span class="p">})</span>
 <span class="n">marginnoise</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Margin</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>-2.944676</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>-3.220211</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>-2.776424</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>-2.989481</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>-3.190484</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choicenoise</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
-<span class="n">choicenoise</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>3.679879</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.422906</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.807980</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1.758959</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.336886</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -861,23 +759,23 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>3.679879</td>
+      <td>2.220171</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.422906</td>
+      <td>2.045314</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.807980</td>
+      <td>3.831233</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.758959</td>
+      <td>3.094479</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.336886</td>
+      <td>2.395261</td>
     </tr>
   </tbody>
 </table>
@@ -889,60 +787,61 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Margin</th>
-      <th>Most Common Choice Picked</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>-2.944676</td>
-      <td>3.679879</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>-3.220211</td>
-      <td>0.422906</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>-2.776424</td>
-      <td>1.807980</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>-2.989481</td>
-      <td>1.758959</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>-3.190484</td>
-      <td>1.336886</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Our noise data is now generated we add this back to the original dataset now.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noisesf</span> <span class="o">=</span> <span class="n">noises</span><span class="p">[[</span><span class="s1">&#39;Margin&#39;</span><span class="p">,</span> <span class="s1">&#39;Most Common Choice Picked&#39;</span><span class="p">]]</span>
+<span class="n">noisesf</span> <span class="o">=</span> <span class="n">noisesf</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">noisesf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-2.59335066,  4.6009828 ],
+       [-3.23305855,  3.22497306],
+       [-2.50139265, -0.65734015],
+       [-2.82924294,  0.52209677],
+       [-3.2730403 , -0.06762169],
+       [-2.85323199,  0.52209677],
+       [-2.45341456,  0.52209677],
+       [-3.11311332,  0.52209677],
+       [-2.50539082,  0.52209677],
+       [-2.50539082,  0.52209677]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centroids_betas_joined</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.10872288, -0.06074673])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">cdist</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">distance</span>
+
+<span class="n">distances</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">cdist</span><span class="p">(</span><span class="n">centroids_betas_joined</span><span class="p">,</span> <span class="n">noisesf</span><span class="p">,</span> <span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+<span class="n">distances</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.89242699, 3.91264062, 1.51507518, 1.81656155, 2.16432834,
+       1.8392984 , 1.46557233, 2.0874117 , 1.51340276, 1.51340276])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our furtherest point away from the centroid of our choosen cluster 0 is the first point we see in the array here. This will be denoted as our data “d” the furtherest point from our centroid, C of cluster 0.</p>
 </div>
 </div>
 
