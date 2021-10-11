@@ -1,5 +1,4 @@
 # References
-```{bibliography} ../references.bib
-:all:
+```{bibliography}
 style: unsrt
 ```
