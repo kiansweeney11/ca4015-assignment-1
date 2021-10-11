@@ -188,12 +188,12 @@ heatmap = heatmap.drop(columns=['StudyNumber'])
 counts = heatmap.groupby('Study')['cluster'].value_counts()
 
 
-# In[20]:
+# In[72]:
 
 
 histdf = pd.DataFrame(counts)
 histdf = histdf.rename(columns={'cluster': 'number'})
-plt = histdf.plot.bar(figsize=(16, 8))
+plt = histdf.plot.bar(figsize=(16, 8), ylabel='No. in Cluster', title='How many per study was in each cluster respectively')
 plt
 
 
@@ -206,6 +206,32 @@ centroids_betas_standard
 # We see our cluster centres above, the left most cluster is denoted as 1, the right most cluster denoted as 0 and the central cluster as 2.
 
 # Using our histogram above it confirms some of our previous statements from earlier. We do indeed see a large majority of Wood study subjects in the less profitable and more varied choice selection cluster to the left of our k-means scatter plot.
+
+# In[71]:
+
+
+commonchoice = joined[['Most Common Choice', 'StudyNumber']]
+replacements = {
+  0: r'Fridberg',  
+  1: r'Horstmann',
+  2: r'Kjome',
+  3: r'Maia',
+  4: r'SteingroverInPrep',
+  5: r'Premkumar',
+  6: r'Wood',
+  7: r'Worthy',
+  8: r'Steingroever2011',
+  9: r'Wetzels',  
+}
+
+commonchoice['Study'] = commonchoice.StudyNumber.replace(replacements, regex=True)
+commonchoice = commonchoice.drop(columns=['StudyNumber'])
+common_counts = commonchoice.groupby('Study')['Most Common Choice'].value_counts()
+plt2 = common_counts.plot.bar(figsize=(16, 8), color='green', ylabel='Times Picked', title='Breakdown of how many subjects per studies had a specific common choice')
+plt2
+
+
+# To further add on to our observations from our k-means analysis for most common choice picked and margin we look at the breakdown of each study and how many subjects favoured a specific deck. This graph here adds to the theory of what we discussed earlier with regards how subjects played the game with exploitation versus exploration. We mentioned earlier how females appeared to prefer a policy of exploration over end results. The studies we mentioned then which were the Horstmann and Wood studies and have large numbers which preffered deck 2 which was one of the least favourable decks. They also had large numbers picking deck 4 which could suggest this is the more exploitative section of subjects in the studies. We also see looking at our earlier age studies that two of the seemingly younger studies SteingroeverInPrep and Wetzels follow very consistent decision making patterns in each of the most common choices. This is something we alluded to earlier in that younger adults tend to follow what they know. It is also interesting to note in the SteingroeverInPrep and the Worthy study that have large specified numbers of female participants the variety of spread of subjects across the most common choices. They both have large numbers picking deck 2 and reasonably equal spread across decks 3 and 4 too. This definitely follows on from our previous findings of potential differences in task approaches along gender lines.  
 
 # In[64]:
 

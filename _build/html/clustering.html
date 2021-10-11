@@ -599,13 +599,13 @@ N = 10 Silhouette Score: 0.308
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">histdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
 <span class="n">histdf</span> <span class="o">=</span> <span class="n">histdf</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;cluster&#39;</span><span class="p">:</span> <span class="s1">&#39;number&#39;</span><span class="p">})</span>
-<span class="n">plt</span> <span class="o">=</span> <span class="n">histdf</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span> <span class="o">=</span> <span class="n">histdf</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;No. in Cluster&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;How many per study was in each cluster respectively&#39;</span><span class="p">)</span>
 <span class="n">plt</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Study,cluster&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;How many per study was in each cluster respectively&#39;}, xlabel=&#39;Study,cluster&#39;, ylabel=&#39;No. in Cluster&#39;&gt;
 </pre></div>
 </div>
 <img alt="_images/clustering_25_1.png" src="_images/clustering_25_1.png" />
@@ -629,6 +629,38 @@ N = 10 Silhouette Score: 0.308
 <p>Using our histogram above it confirms some of our previous statements from earlier. We do indeed see a large majority of Wood study subjects in the less profitable and more varied choice selection cluster to the left of our k-means scatter plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">commonchoice</span> <span class="o">=</span> <span class="n">joined</span><span class="p">[[</span><span class="s1">&#39;Most Common Choice&#39;</span><span class="p">,</span> <span class="s1">&#39;StudyNumber&#39;</span><span class="p">]]</span>
+<span class="n">replacements</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="mi">0</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Fridberg&#39;</span><span class="p">,</span>  
+  <span class="mi">1</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Horstmann&#39;</span><span class="p">,</span>
+  <span class="mi">2</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Kjome&#39;</span><span class="p">,</span>
+  <span class="mi">3</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Maia&#39;</span><span class="p">,</span>
+  <span class="mi">4</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;SteingroverInPrep&#39;</span><span class="p">,</span>
+  <span class="mi">5</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Premkumar&#39;</span><span class="p">,</span>
+  <span class="mi">6</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Wood&#39;</span><span class="p">,</span>
+  <span class="mi">7</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Worthy&#39;</span><span class="p">,</span>
+  <span class="mi">8</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Steingroever2011&#39;</span><span class="p">,</span>
+  <span class="mi">9</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Wetzels&#39;</span><span class="p">,</span>  
+<span class="p">}</span>
+
+<span class="n">commonchoice</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">commonchoice</span><span class="o">.</span><span class="n">StudyNumber</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">replacements</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">commonchoice</span> <span class="o">=</span> <span class="n">commonchoice</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">])</span>
+<span class="n">common_counts</span> <span class="o">=</span> <span class="n">commonchoice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Study&#39;</span><span class="p">)[</span><span class="s1">&#39;Most Common Choice&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">plt2</span> <span class="o">=</span> <span class="n">common_counts</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Times Picked&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Breakdown of how many subjects per studies had a specific common choice&#39;</span><span class="p">)</span>
+<span class="n">plt2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Breakdown of how many subjects per studies had a specific common choice&#39;}, xlabel=&#39;Study,Most Common Choice&#39;, ylabel=&#39;Times Picked&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/clustering_29_2.png" src="_images/clustering_29_2.png" />
+</div>
+</div>
+<p>To further add on to our observations from our k-means analysis for most common choice picked and margin we look at the breakdown of each study and how many subjects favoured a specific deck. This graph here adds to the theory of what we discussed earlier with regards how subjects played the game with exploitation versus exploration. We mentioned earlier how females appeared to prefer a policy of exploration over end results. The studies we mentioned then which were the Horstmann and Wood studies and have large numbers which preffered deck 2 which was one of the least favourable decks. They also had large numbers picking deck 4 which could suggest this is the more exploitative section of subjects in the studies. We also see looking at our earlier age studies that two of the seemingly younger studies SteingroeverInPrep and Wetzels follow very consistent decision making patterns in each of the most common choices. This is something we alluded to earlier in that younger adults tend to follow what they know. It is also interesting to note in the SteingroeverInPrep and the Worthy study that have large specified numbers of female participants the variety of spread of subjects across the most common choices. They both have large numbers picking deck 2 and reasonably equal spread across decks 3 and 4 too. This definitely follows on from our previous findings of potential differences in task approaches along gender lines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">standard</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Margin&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Average Choice&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;StudyNumber&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;tab10&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -637,7 +669,7 @@ N = 10 Silhouette Score: 0.308
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Margin&#39;, ylabel=&#39;Average Choice&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/clustering_29_1.png" src="_images/clustering_29_1.png" />
+<img alt="_images/clustering_31_1.png" src="_images/clustering_31_1.png" />
 </div>
 </div>
 <p>We will look at the margin vs average choice plot and try to combine this with our earlier graphs too to further our knowledge on subjects decison making. Using our colour bar we can deduce the clusters from what study they are a part of. If we look at the cluster to the left in our k-means scatter plot we can see that a substantial amount of this cluster contains subjects from the Wood et al study. It is interesting to note this had the highest mean average age of any study in the datasets. It also had a large number of participants but looking at the scatter plot very few participants made money over the course of the trials. The majority had an average choice of below 3 and certainly fell into the category of average lower choice and lower financial gain. This study also features heavily in the second cluster (the one most central) and this cluster also contains subjects who struggled to break even. The Horstmann study also features heavily in this cluster as does the Worthy study in yellow. The Worthy study leans more towards the first cluster again in the lower choice average, lower money made category. It is interesting to note that this study does not explicitly state the age demography of the group studied but tells us it was a solely female, undergraduate student study, which hints at it being a younger age group. In the third cluster to the right, which is the higher average choice, higher profit group we can see a large mix of groups with comparatively less subjects in this cluster compared to the other two. We can see a significant amount of subjects from the Maia study and also quite a few from the previously mentioned Horstmann study. We also see even with a small sample size from the study there is a significant number of Premkumar participants in this profitable cluster. Two of these studies contain a very young mean age again. The Maia study is another that focuses on undergraduate students again, but with better results than previous.</p>
