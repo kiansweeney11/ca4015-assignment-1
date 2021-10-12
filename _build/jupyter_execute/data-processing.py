@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 2. Data preparation for Clustering
+# # Data preparation for Clustering
 # For our clustering analysis we need to prepare the data accordingly. Following on from our data analysis we want to try to cluster on the profit margin of participants against the number of times the subjects picked their most common deck choice or their average choice. We will then combine this with a scatter plot showing the study each subject was a part of and see what information we can gather from this. We will be looking at age demographies more so but also look to combine this with the amount of cards that pay out in each study and gender breakdowns also. To do this we need to create appropriate CSV files that we can then use for clustering. 
 
 # In[1]:

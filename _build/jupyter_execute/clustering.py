@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 3. Clustering
+# # Clustering
 # ## After our analysis of the data we must now cluster the data accordingly
 
 # In[1]:

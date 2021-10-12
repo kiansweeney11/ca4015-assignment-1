@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 4. K-Means Variation
+# # K-Means Variation
 
 # In[1]:
 
