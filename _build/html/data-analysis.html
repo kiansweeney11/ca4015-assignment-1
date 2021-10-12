@@ -117,7 +117,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="conclusion.html">
-   Conclusion
+   Conclusions
   </a>
  </li>
  <li class="toctree-l1">
@@ -274,6 +274,11 @@
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#next-we-move-onto-the-150-trial-experiments-and-see-how-these-studies-flowed-over-the-course-of-their-trials">
        Next we move onto the 150 trial experiments and see how these studies flowed over the course of their trials
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lastly-we-look-at-our-100-trial-studies-selection-flow">
+       Lastly, we look at our 100 Trial studies selection flow
       </a>
      </li>
     </ul>
@@ -576,7 +581,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x1c611ab4eb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x19f4b4c6f70&gt;
 </pre></div>
 </div>
 <img alt="_images/data-analysis_11_1.png" src="_images/data-analysis_11_1.png" />
@@ -663,7 +668,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x1c61330ea60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x19f4c37ee80&gt;
 </pre></div>
 </div>
 <img alt="_images/data-analysis_17_1.png" src="_images/data-analysis_17_1.png" />
@@ -750,7 +755,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x1c613363d60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x19f4bdac880&gt;
 </pre></div>
 </div>
 <img alt="_images/data-analysis_23_1.png" src="_images/data-analysis_23_1.png" />
@@ -768,7 +773,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>There is a much higher % of people making profit in the 150 trial experiment (63%). There is far less people taking part in this experiment than the 100 trial experiment but it may be worth drilling down further into the data to check the differences between the different groups undertaking the experiments here. It might be interesting to see if there is any trends surrounding the age profiles surveyed. We will now try to combine the study groups with our “margin” results.</p>
+<p>There is a much higher % of people making profit in the 150 trial experiment (63%). There is far less people taking part in this experiment than the 100 trial experiment but it may be worth drilling down further into the data to check the differences between the different groups undertaking the experiments here. It might be interesting to see if there is any trends surrounding the age or the gender of the subjects or the number of cards that paid out in the study in question. We will now try to combine the study groups with our “margin” results.</p>
 <div class="section" id="adding-in-study-undertakers-to-participant-data">
 <h2>Adding in Study undertakers to participant data<a class="headerlink" href="#adding-in-study-undertakers-to-participant-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -842,7 +847,7 @@ Name: Study, dtype: int64
 </div>
 <div class="section" id="assessment-of-150-margin-results-for-each-study">
 <h2>Assessment of 150 margin results for each study<a class="headerlink" href="#assessment-of-150-margin-results-for-each-study" title="Permalink to this headline">¶</a></h2>
-<p>This is interesting to note these values. Both studies make a large cumulative profit over the course of the 150 trials undertaken. There is a net profit between the two studies of 36,550 dollars, almost an average profit of 375 dollars per participant. It is interesting to note that the 41 students in “Wetzels” study were exclusively students, while in Steingroever2011’s study there was a young average age (19.9) but no specific mention of if the participants were students or not. Although they made money it was almost half of the other group studied. We will measure this against the other datasets to see if age is a factor between the decision making of the groups.</p>
+<p>This is interesting to note these values. Both studies make a large cumulative profit over the course of the 150 trials undertaken. There is a net profit between the two studies of 36,550 dollars, almost an average profit of 375 dollars per participant. It is interesting to note that the 41 students in “Wetzels” study were exclusively students, while in Steingroever2011’s study there was a young average age (19.9) but no specific mention of if the participants were students or not. Although they made money it was almost half of the other group studied. We will now measure this against other datasets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin100df</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -977,7 +982,7 @@ Name: Study, dtype: int64
 </div>
 <div class="section" id="assessment-of-margin-for-100-trial-experiments">
 <h2>Assessment of margin for 100 trial experiments<a class="headerlink" href="#assessment-of-margin-for-100-trial-experiments" title="Permalink to this headline">¶</a></h2>
-<p>The results here are in stark contrast to the 150 trial experiments. Despite less trials there is some significant losses accumalated by participants. Although the study conducted by Wood has a large number of participants in 153, the loss of 119,410 is certainly a major outlier. This equates to an average loss of roughly 780 dollars per person. It is particularly interesting to note <a class="reference external" href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ak/">here</a> in table 1, we see this group has the oldest average age of any group in the study by some distance. The next oldest average age specified actually makes a profit (Premkumar). Again we see students with strong results in the Maia study as undergraduate students here make a strong profit, similar to the groups in the 150 trial experiments. We now check the 95 trial study as our last part of our margin analysis.</p>
+<p>The results here are in stark contrast to the 150 trial experiments. Despite less trials there is some significant losses accumalated by participants. Although the study conducted by Wood has a large number of participants in 153, the loss of 119,410 is certainly a major outlier. This equates to an average loss of roughly 780 dollars per person. It is particularly interesting to note <a class="reference external" href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.ak/">here</a> in table 1, we see this group has the oldest average age of any group in the study by some distance. However, there is a significant cohort of this group (the first 90) who are between 18-40 years old. The next oldest average age specified actually makes a profit (Premkumar). This potentially suggests age might not be a major factor. Again we see students with strong results in the Maia study as undergraduate students here make a strong profit, similar to the groups in the 150 trial experiments. We now check the 95 trial study as our last part of our margin analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">margin95df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1095,7 +1100,7 @@ Name: Study, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_trial_95</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Fridberg Study Win/Loss per round&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_trial_95</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Fridberg Study Win/Loss per round&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1111,9 +1116,7 @@ Name: Study, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columnnames150</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Trial</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">151</span><span class="p">)]</span>
-<span class="c1">#columnnames95</span>
 <span class="n">wins150test</span> <span class="o">=</span> <span class="n">win150</span>
-<span class="c1">#wins95test.head()</span>
 <span class="n">wins150test</span> <span class="o">=</span> <span class="n">wins150test</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="n">columnnames150</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1326,7 +1329,7 @@ Name: Study, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_trial_150_stein</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Steingroever2011&#39;s study&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_trial_150_stein</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Steingroever2011&#39;s study&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1348,7 +1351,7 @@ Name: Study, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_trial_150_wetzels</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Wetzels study&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">per_trial_150_wetzels</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Wetzels study&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1360,6 +1363,135 @@ Name: Study, dtype: int64
 </div>
 </div>
 <p>After assessing the participants winnings in each study and how their respective win / losses flowed per trial I decided to delve deeper into why these studies appeared more profitable than others. It is easy to point to the varying amounts of cards that pay out on each study and the number of respective trials each study undertook or the number of participants each study had. I felt it would be interesting to build on the win / loss flow per trials mentioned just above and try to pick out patterns accordingly. This would be something like if studies lost a lot of money is this down to a lower average choice of deck or constant changing of choosen cards and see if we could link this to research and studies on the IGT. This study and research could be related to gender based decision making or age demographies and see if these related studies findings hold true to our sample data.</p>
+</div>
+<div class="section" id="lastly-we-look-at-our-100-trial-studies-selection-flow">
+<h3>Lastly, we look at our 100 Trial studies selection flow<a class="headerlink" href="#lastly-we-look-at-our-100-trial-studies-selection-flow" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columnnames100</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Trial</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">)]</span>
+<span class="n">wins100test</span> <span class="o">=</span> <span class="n">win100</span>
+<span class="n">wins100test</span> <span class="o">=</span> <span class="n">wins100test</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="n">columnnames100</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">loss100test</span> <span class="o">=</span> <span class="n">loss100</span>
+<span class="n">loss100test</span> <span class="o">=</span> <span class="n">loss100test</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="n">columnnames100</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df100_added</span> <span class="o">=</span> <span class="n">wins100test</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">loss100test</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index100</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testin</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;SteingroverInPrep&#39;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">testin</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
+<span class="n">per_trial_100_in</span> <span class="o">=</span> <span class="n">testin</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">per_trial_100_in</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for SteingroverInPrep&#39;s study&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for SteingroverInPrep&#39;s study&quot;}&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_68_1.png" src="_images/data-analysis_68_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testworth</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Worthy&#39;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">testworth</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
+<span class="n">per_trial_100_wor</span> <span class="o">=</span> <span class="n">testworth</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">per_trial_100_wor</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Worthy&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Worthy&#39;s study&quot;}&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_69_1.png" src="_images/data-analysis_69_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testwood</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Wood&#39;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">testwood</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
+<span class="n">per_trial_100_wood</span> <span class="o">=</span> <span class="n">testwood</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">per_trial_100_wood</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Wood&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Wood&#39;s study&quot;}&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_70_1.png" src="_images/data-analysis_70_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testmaia</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Maia&#39;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">testmaia</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
+<span class="n">per_trial_100_maia</span> <span class="o">=</span> <span class="n">testmaia</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">per_trial_100_maia</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Maia&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Maia&#39;s study&quot;}&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_71_1.png" src="_images/data-analysis_71_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testhorstmann</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Horstmann&#39;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">testhorstmann</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
+<span class="n">per_trial_100_horstmann</span> <span class="o">=</span> <span class="n">testhorstmann</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">per_trial_100_horstmann</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Horstmann&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Horstmann&#39;s study&quot;}&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_72_1.png" src="_images/data-analysis_72_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testprekumar</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Premkumar&#39;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">testprekumar</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
+<span class="n">per_trial_100_prekumar</span> <span class="o">=</span> <span class="n">testprekumar</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">per_trial_100_prekumar</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Prekumar&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Prekumar&#39;s study&quot;}&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_73_1.png" src="_images/data-analysis_73_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testkjome</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Kjome&#39;</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">testkjome</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
+<span class="n">per_trial_100_kjome</span> <span class="o">=</span> <span class="n">testkjome</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">per_trial_100_kjome</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Kjome&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Kjome&#39;s study&quot;}&gt;
+</pre></div>
+</div>
+<img alt="_images/data-analysis_74_1.png" src="_images/data-analysis_74_1.png" />
+</div>
+</div>
+<p>Looking at our selection flow graphs we can see studies that lose significant amounts of money such as the Wood and Worthy study start well for the initial trials, all in good profit but big dips around the 21st trial mark for both mark a downturn in results. This points to a varied selection policy in that even after exploring the decks at the start and seeing that they win the subjects deviate from these and pay the price with losses building up. The more profitable Maia and Premkumar studies are noticeable in that whenever they encounter a large dip they normally recover quickly and don’t lose as big for many trials again. This points to a more informed knowledge of the decks and not being unsettled by such losses. We will now use our information gathered here to break down the studies and detect trends in age, gender number of trials / participants and so forth. To do this we will need to process the given data accordingly.</p>
 </div>
 </div>
 </div>
