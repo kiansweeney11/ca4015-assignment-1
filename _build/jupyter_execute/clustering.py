@@ -89,7 +89,7 @@ for n in range(2, 11):
 
 # #### Elbow Method
 
-# In[8]:
+# In[6]:
 
 
 distortions_joined_st = []
@@ -100,7 +100,7 @@ for k in K:
     distortions_joined_st.append(kmeanModel.inertia_)
 
 
-# In[9]:
+# In[7]:
 
 
 plt.figure(figsize=(16,8))
@@ -115,11 +115,11 @@ plt.show()
 
 # ## Now we look at what we will cluster on in our data
 
-# In[93]:
+# In[9]:
 
 
-plt3 = pd.plotting.scatter_matrix(standard, figsize=(16,12), hist_kwds=dict(bins=50), cmap="Set1")
-plt3.show()
+pd.plotting.scatter_matrix(standard, figsize=(16,12), hist_kwds=dict(bins=50), cmap="Set1")
+plt.show()
 
 
 # After looking at this scatterplot comparing the various columns against each other in a scatter plot I felt it might be worth looking into how regularly a participant picked their most common choice and the profit margins. We could further look into this by looking at what was their most common choice and the respective study they belonged to.
