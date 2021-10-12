@@ -14,6 +14,8 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans, AgglomerativeClustering
 from sklearn.metrics import silhouette_score
 import seaborn as sns
+import warnings
+warnings.filterwarnings("ignore")
 
 
 # ### First, we read in our data
@@ -113,11 +115,11 @@ plt.show()
 
 # ## Now we look at what we will cluster on in our data
 
-# In[10]:
+# In[93]:
 
 
-pd.plotting.scatter_matrix(standard, figsize=(10,10), hist_kwds=dict(bins=50), cmap="Set1")
-plt.show()
+plt3 = pd.plotting.scatter_matrix(standard, figsize=(16,12), hist_kwds=dict(bins=50), cmap="Set1")
+plt3.show()
 
 
 # After looking at this scatterplot comparing the various columns against each other in a scatter plot I felt it might be worth looking into how regularly a participant picked their most common choice and the profit margins. We could further look into this by looking at what was their most common choice and the respective study they belonged to.
