@@ -1379,15 +1379,7 @@ Name: Study, dtype: int64
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testin</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;SteingroverInPrep&#39;</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">testin</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
-<span class="n">per_trial_100_in</span> <span class="o">=</span> <span class="n">testin</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">per_trial_100_in</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for SteingroverInPrep&#39;s study&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for SteingroverInPrep&#39;s study&quot;}&gt;
 </pre></div>
@@ -1395,15 +1387,7 @@ Name: Study, dtype: int64
 <img alt="_images/data-analysis_68_1.png" src="_images/data-analysis_68_1.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testworth</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Worthy&#39;</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">testworth</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
-<span class="n">per_trial_100_wor</span> <span class="o">=</span> <span class="n">testworth</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">per_trial_100_wor</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Worthy&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Worthy&#39;s study&quot;}&gt;
 </pre></div>
@@ -1411,15 +1395,7 @@ Name: Study, dtype: int64
 <img alt="_images/data-analysis_69_1.png" src="_images/data-analysis_69_1.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testwood</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Wood&#39;</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">testwood</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
-<span class="n">per_trial_100_wood</span> <span class="o">=</span> <span class="n">testwood</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">per_trial_100_wood</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Wood&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Wood&#39;s study&quot;}&gt;
 </pre></div>
@@ -1427,15 +1403,7 @@ Name: Study, dtype: int64
 <img alt="_images/data-analysis_70_1.png" src="_images/data-analysis_70_1.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testmaia</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Maia&#39;</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">testmaia</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
-<span class="n">per_trial_100_maia</span> <span class="o">=</span> <span class="n">testmaia</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">per_trial_100_maia</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Maia&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Maia&#39;s study&quot;}&gt;
 </pre></div>
@@ -1443,15 +1411,7 @@ Name: Study, dtype: int64
 <img alt="_images/data-analysis_71_1.png" src="_images/data-analysis_71_1.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testhorstmann</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Horstmann&#39;</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">testhorstmann</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
-<span class="n">per_trial_100_horstmann</span> <span class="o">=</span> <span class="n">testhorstmann</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">per_trial_100_horstmann</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Horstmann&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Horstmann&#39;s study&quot;}&gt;
 </pre></div>
@@ -1459,15 +1419,7 @@ Name: Study, dtype: int64
 <img alt="_images/data-analysis_72_1.png" src="_images/data-analysis_72_1.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testprekumar</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Premkumar&#39;</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">testprekumar</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
-<span class="n">per_trial_100_prekumar</span> <span class="o">=</span> <span class="n">testprekumar</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">per_trial_100_prekumar</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Prekumar&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Prekumar&#39;s study&quot;}&gt;
 </pre></div>
@@ -1475,15 +1427,7 @@ Name: Study, dtype: int64
 <img alt="_images/data-analysis_73_1.png" src="_images/data-analysis_73_1.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">testkjome</span> <span class="o">=</span> <span class="n">df100_added</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df100_added</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Kjome&#39;</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">testkjome</span><span class="p">[</span><span class="s1">&#39;Study&#39;</span><span class="p">]</span>
-<span class="n">per_trial_100_kjome</span> <span class="o">=</span> <span class="n">testkjome</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">per_trial_100_kjome</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Winnings per round for Kjome&#39;s study&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&quot;Winnings per round for Kjome&#39;s study&quot;}&gt;
 </pre></div>
