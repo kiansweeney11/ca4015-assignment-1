@@ -34,6 +34,9 @@ After this is installed we can then proceed to build our PDF as follows:
 jupyter-book build mybookname/ --builder pdfhtml
 ```
 
+### Limitations
+Issues were encountered with our choosen k-means variation approach where I found some of the notation hard to follow and implement via jupyter notebooks. This is discussed further in the conclusion. 
+
 ### Links
 - Here is a link to my jupyter [book](https://kiansweeney11.github.io/ca4015-assignment-1/introduction.html)
 - Link to github repo https://github.com/kiansweeney11/ca4015-assignment-1
