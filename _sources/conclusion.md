@@ -7,3 +7,6 @@ In our data analysis using the k-means algorithm we looked at how does profit / 
 
 ### Different strategies from males and females
 It was also interesting to note from our scatter plot that there appeared to be a pronounced difference in how males and females selected their decks. Studies that indicated the number of female particpiants in their work (and that had high female representation) appeared to mix up their choices regularly over the course of the trials even after an initial period of observation. Whereas studies that did not indicate the number of female particpiants or had lower numbers appeared to be more consistent with their choices, experimenting initially and then sticking to decks they feel are winners.
+
+### Limitations
+There was limitations to our k-means variation approach, with some of the notation used in our approach difficult to follow and implement. We tried to add noise to our dataset but after that the data recovery phase was difficult to implement and do in full anonymity. I would try to follow a more simplistic approach in the future focusing more on Principal Component Analysis (PCA) for future k-means variations approaches.
